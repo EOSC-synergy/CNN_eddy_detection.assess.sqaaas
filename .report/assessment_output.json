@@ -1,0 +1,962 @@
+{
+    "meta": {
+        "version": "3.2.1",
+        "report_json_url": "https://raw.githubusercontent.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas/unitn_work/.report/assessment_output.json"
+    },
+    "repository": [
+        {
+            "url": "https://github.com/LegoCreation/CNN_eddy_detection/",
+            "name": "LegoCreation/CNN_eddy_detection",
+            "tag": "unitn_work",
+            "commit_id": "6e475bc7edc15856b3e88865c25c87e1ce771e1a",
+            "is_main_repo": true,
+            "avatar_url": "https://avatars.githubusercontent.com/u/59442874?v=4",
+            "description": null,
+            "languages": null,
+            "topics": null,
+            "stargazers_count": null,
+            "watchers_count": null,
+            "contributors_count": null,
+            "forks_count": null,
+            "badge_status": "no_badge"
+        }
+    ],
+    "report": {
+        "QC.Acc": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Acc01": {
+                    "description": "Is the source code managed with a Version Control System?",
+                    "requirement_level": "MUST",
+                    "hint": "The source code shall be managed with Git and remain publicly available for this criterion to be successful. Please check <a href=\"https://git-scm.com/book/es/v2\" target=\"_blank\">Pro Git</a> docs about how to get started using Git tool. Guidelines provided by the most popular social coding platforms (<a href=\"https://docs.github.com/get-started\" target=\"_blank\">GitHub</a>, <a href=\"https://about.gitlab.com/get-started/\" target=\"_blank\">GitLab</a>) are also a good starting point",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Source code uses Git for version control",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-boolean",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "git",
+                                "lang": "scm",
+                                "version": "2.34.1",
+                                "docker": {
+                                    "image": "bitnami/git:2.34.1",
+                                    "reviewed": "2021-12-30"
+                                },
+                                "ci": {
+                                    "name": "QC.Acc github.com/LegoCreation/CNN_eddy_detection git",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "git rev-parse --is-inside-work-tree "
+                                    ],
+                                    "stdout_text": "true",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/34/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Doc": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Doc06.1": {
+                    "description": "Is the software scope outlined in the code repository?",
+                    "requirement_level": "MUST",
+                    "hint": "A README file presents your software to the audience interested in your software project. Several online sites simplify the task of creating the README file, such as <a href=\"https://www.makeareadme.com/\" target=\"_blank\">Make a README</a> or <a href=\"https://readme.so/\" target=\"_blank\">readme.so</a> sites. Be sure to add it to the code repository's root path",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A README file not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/LegoCreation/CNN_eddy_detection find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc06.3": {
+                    "description": "Does the project establish a code of conduct for its participants?",
+                    "requirement_level": "MUST",
+                    "hint": "A CODE_OF_CONDUCT file sets the path for a constructive, respectful and positive atmosphere among all the contributors in your software project. Of course you can define your own, but in case you want to rely on external and widely-adopted code of conducts check out some of the most popular ones: <a href=\"https://contributor-covenant.org/\" target=\"_blank\">Contributor Covenant</a> or <a href=\"https://web.archive.org/web/20200330154000/http://citizencodeofconduct.org/\" target=\"_blank\">Citizen Code of Conduct</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A CODE_OF_CONDUCT file is not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/LegoCreation/CNN_eddy_detection find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc06.2": {
+                    "description": "Is there a clear path or guidelines on how to contribute to the code?",
+                    "requirement_level": "MUST",
+                    "hint": "A CONTRIBUTING file shall be present in the root path of the code repository describing the expected workflow to follow when adding contributions. Please check <a href=\"https://mozillascience.github.io/working-open-workshop/contributing/\" target=\"_blank\">Mozilla's guidelines</a> and <a href=\"https://github.com/github/docs/blob/main/CONTRIBUTING.md\" target=\"_blank\">GitHub's CONTRIBUTING.md example</a> to get inspired on how to write a good CONTRIBUTING file",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A CONTRIBUTING file is not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/LegoCreation/CNN_eddy_detection find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc01.1": {
+                    "description": "Are docs managed in the same repository as code?",
+                    "requirement_level": "MAY",
+                    "hint": "This subcriterion will succeed if the documentation files exist on the same repository as the source code, e.g. under a <code>docs/</code> folder",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Documentation resides in the same repository as code",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-boolean",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "git",
+                                "lang": null,
+                                "version": null,
+                                "docker": null,
+                                "ci": {
+                                    "name": "QC.Doc github.com/LegoCreation/CNN_eddy_detection git",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "git rev-parse --is-inside-work-tree "
+                                    ],
+                                    "stdout_text": "true",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/52/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                },
+                "QC.Doc02.X": {
+                    "description": "Are docs following a style for the Markdown markup language?",
+                    "requirement_level": "MAY",
+                    "hint": "When using a docs-as-code approach, the style of the markup language is being checked. SQAaaS relies on <a href=\"https://github.com/markdownlint/markdownlint/\" target=\"_blank\">markdownlint</a> for Markdown files and <a href=\"https://github.com/twolfson/restructuredtext-lint/\" target=\"_blank\">restructuredtext-lint</a> for reStructuredText",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Docs are not fully compliant with markdownlint standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-markdownlint",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "markdownlint",
+                                "lang": "Markdown",
+                                "version": "0.11.0",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/markdownlint/Dockerfile",
+                                    "reviewed": "1970-01-01"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/LegoCreation/CNN_eddy_detection markdownlint",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "mdl --json  ."
+                                    ],
+                                    "stdout_text": "[{\"filename\":\"./readme.md\",\"line\":1,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\"},{\"filename\":\"./readme.md\",\"line\":6,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\"},{\"filename\":\"./readme.md\",\"line\":7,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\"},{\"filename\":\"./readme.md\",\"line\":12,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\"},{\"filename\":\"./readme.md\",\"line\":35,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\"},{\"filename\":\"./readme.md\",\"line\":1,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./readme.md\",\"line\":31,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./readme.md\",\"line\":35,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./readme.md\",\"line\":46,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./readme.md\",\"line\":3,\"rule\":\"MD022\",\"aliases\":[\"blanks-around-headers\"],\"description\":\"Headers should be surrounded by blank lines\"},{\"filename\":\"./readme.md\",\"line\":4,\"rule\":\"MD031\",\"aliases\":[\"blanks-around-fences\"],\"description\":\"Fenced code blocks should be surrounded by blank lines\"},{\"filename\":\"./readme.md\",\"line\":44,\"rule\":\"MD031\",\"aliases\":[\"blanks-around-fences\"],\"description\":\"Fenced code blocks should be surrounded by blank lines\"},{\"filename\":\"./scripts/readme.md\",\"line\":4,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./scripts/readme.md\",\"line\":6,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./scripts/readme.md\",\"line\":7,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./scripts/readme.md\",\"line\":1,\"rule\":\"MD022\",\"aliases\":[\"blanks-around-headers\"],\"description\":\"Headers should be surrounded by blank lines\"},{\"filename\":\"./scripts/readme.md\",\"line\":7,\"rule\":\"MD022\",\"aliases\":[\"blanks-around-headers\"],\"description\":\"Headers should be surrounded by blank lines\"},{\"filename\":\"./scripts/readme.md\",\"line\":8,\"rule\":\"MD022\",\"aliases\":[\"blanks-around-headers\"],\"description\":\"Headers should be surrounded by blank lines\"},{\"filename\":\"./scripts/readme.md\",\"line\":3,\"rule\":\"MD032\",\"aliases\":[\"blanks-around-lists\"],\"description\":\"Lists should be surrounded by blank lines\"},{\"filename\":\"./scripts/readme.md\",\"line\":6,\"rule\":\"MD032\",\"aliases\":[\"blanks-around-lists\"],\"description\":\"Lists should be surrounded by blank lines\"}]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/61/log?consoleFull"
+                                },
+                                "level": "RECOMMENDED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "./readme.md": {
+                                    "MD009": {
+                                        "description": "Trailing spaces",
+                                        "line": [
+                                            1,
+                                            6,
+                                            7,
+                                            12,
+                                            35
+                                        ]
+                                    },
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            1,
+                                            31,
+                                            35,
+                                            46
+                                        ]
+                                    },
+                                    "MD022": {
+                                        "description": "Headers should be surrounded by blank lines",
+                                        "line": [
+                                            3
+                                        ]
+                                    },
+                                    "MD031": {
+                                        "description": "Fenced code blocks should be surrounded by blank lines",
+                                        "line": [
+                                            4,
+                                            44
+                                        ]
+                                    }
+                                },
+                                "./scripts/readme.md": {
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            4,
+                                            6,
+                                            7
+                                        ]
+                                    },
+                                    "MD022": {
+                                        "description": "Headers should be surrounded by blank lines",
+                                        "line": [
+                                            1,
+                                            7,
+                                            8
+                                        ]
+                                    },
+                                    "MD032": {
+                                        "description": "Lists should be surrounded by blank lines",
+                                        "line": [
+                                            3,
+                                            6
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 20,
+                "total_subcriteria": 5,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Lic": {
+            "valid": false,
+            "subcriteria": {},
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 0,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Sec": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Sec02": {
+                    "description": "Is the source code passing Static Analysis Security Testing (SAST)?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the SAST tool",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Source code files pass SAST checks performed by bandit tool",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-bandit",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "bandit",
+                                "lang": "Python",
+                                "version": "1.7.4",
+                                "docker": {
+                                    "dockerfile": "QC.Sec/bandit/Dockerfile",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sec github.com/LegoCreation/CNN_eddy_detection bandit",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "bandit -f json --quiet  --confidence-level high --severity-level high --recursive  ."
+                                    ],
+                                    "stdout_text": "{\n  \"errors\": [],\n  \"generated_at\": \"2025-02-17T18:39:22Z\",\n  \"metrics\": {\n    \"./notebooks/filters.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 159,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./notebooks/plain_neural_network.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 139,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/cnn_predicted_data_generation.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 16,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/cnn_testing.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 16,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/cnn_training.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 110,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/filters.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 159,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/generate_segmentation_mask.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 91,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/generic_eddy_class.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 84,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/interpolator_func.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 244,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/month_to_year.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 18,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/plain_neural_network.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 139,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/run.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 47,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/run2.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 10,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./scripts/run_multiproc.py\": {\n      \"CONFIDENCE.HIGH\": 3,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 3,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 15,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 3,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 3,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 1247,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/79/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "errors": [],
+                                "generated_at": "2025-02-17T18:39:22Z",
+                                "metrics": {
+                                    "./notebooks/filters.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 159,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./notebooks/plain_neural_network.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 139,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/cnn_predicted_data_generation.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 16,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/cnn_testing.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 16,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/cnn_training.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 110,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/filters.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 159,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/generate_segmentation_mask.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 91,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/generic_eddy_class.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 84,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/interpolator_func.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 244,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/month_to_year.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 18,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/plain_neural_network.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 139,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/run.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 47,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/run2.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 10,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./scripts/run_multiproc.py": {
+                                        "CONFIDENCE.HIGH": 3,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 3,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 15,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "_totals": {
+                                        "CONFIDENCE.HIGH": 3,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 3,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 1247,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    }
+                                },
+                                "results": []
+                            }
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Sty": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Sty01": {
+                    "description": "Is the software product following a style standard for Python files?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the linter tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Python files are not fully compliant with flake8 (pycodestyle, pyflakes, mccabe) standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-flake8",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "flake8",
+                                "lang": "Python",
+                                "version": "4.0.1 (mccabe: 0.6.1, pycodestyle: 2.8.0, pyflakes: 2.4.0)",
+                                "docker": {
+                                    "image": "pipelinecomponents/flake8:0.9.0",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sty github.com/LegoCreation/CNN_eddy_detection flake8",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "flake8 ."
+                                    ],
+                                    "stdout_text": "./notebooks/plain_neural_network.py:10:1: F401 'tensorflow.keras.preprocessing.image.load_img' imported but unused\n./notebooks/plain_neural_network.py:12:1: F401 'keras.layers.Conv2D' imported but unused\n./notebooks/plain_neural_network.py:12:1: F401 'keras.layers.MaxPooling2D' imported but unused\n./notebooks/plain_neural_network.py:12:1: F401 'keras.layers.Conv2DTranspose' imported but unused\n./notebooks/plain_neural_network.py:12:80: E501 line too long (156 > 79 characters)\n./notebooks/plain_neural_network.py:14:1: F811 redefinition of unused 'np' from line 9\n./notebooks/plain_neural_network.py:15:1: F401 'np_utils' imported but unused\n./notebooks/plain_neural_network.py:19:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:39:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:50:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:59:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:65:9: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:66:9: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:72:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:74:5: E303 too many blank lines (2)\n./notebooks/plain_neural_network.py:77:40: E203 whitespace before ':'\n./notebooks/plain_neural_network.py:78:41: E203 whitespace before ':'\n./notebooks/plain_neural_network.py:79:80: E501 line too long (80 > 79 characters)\n./notebooks/plain_neural_network.py:80:80: E501 line too long (80 > 79 characters)\n./notebooks/plain_neural_network.py:81:9: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:85:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:86:42: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:86:44: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:86:46: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:86:49: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:86:66: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:86:80: E501 line too long (104 > 79 characters)\n./notebooks/plain_neural_network.py:86:102: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:89:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:91:5: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:92:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:95:45: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:47: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:50: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:56: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:59: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:64: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:68: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:73: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:77: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:80: E501 line too long (88 > 79 characters)\n./notebooks/plain_neural_network.py:95:82: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:89: W291 trailing whitespace\n./notebooks/plain_neural_network.py:96:80: E501 line too long (91 > 79 characters)\n./notebooks/plain_neural_network.py:100:80: E501 line too long (91 > 79 characters)\n./notebooks/plain_neural_network.py:105:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:106:17: E225 missing whitespace around operator\n./notebooks/plain_neural_network.py:108:19: E225 missing whitespace around operator\n./notebooks/plain_neural_network.py:111:45: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:47: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:51: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:57: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:61: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:66: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:70: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:75: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:80: E501 line too long (80 > 79 characters)\n./notebooks/plain_neural_network.py:112:41: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:113:80: E501 line too long (84 > 79 characters)\n./notebooks/plain_neural_network.py:113:85: W291 trailing whitespace\n./notebooks/plain_neural_network.py:117:80: E501 line too long (84 > 79 characters)\n./notebooks/plain_neural_network.py:117:85: W291 trailing whitespace\n./notebooks/plain_neural_network.py:124:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:125:40: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:125:79: W291 trailing whitespace\n./notebooks/plain_neural_network.py:126:61: W291 trailing whitespace\n./notebooks/plain_neural_network.py:133:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:135:5: E122 continuation line missing indentation or outdented\n./notebooks/plain_neural_network.py:139:48: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:139:56: E251 unexpected spaces around keyword / parameter equals\n./notebooks/plain_neural_network.py:139:58: E251 unexpected spaces around keyword / parameter equals\n./notebooks/plain_neural_network.py:139:80: E501 line too long (86 > 79 characters)\n./notebooks/plain_neural_network.py:142:18: E225 missing whitespace around operator\n./notebooks/plain_neural_network.py:143:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:146:80: E501 line too long (84 > 79 characters)\n./notebooks/plain_neural_network.py:147:80: E501 line too long (85 > 79 characters)\n./notebooks/plain_neural_network.py:147:86: W291 trailing whitespace\n./notebooks/plain_neural_network.py:148:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:149:31: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:149:44: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:149:62: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:149:80: E501 line too long (83 > 79 characters)\n./notebooks/plain_neural_network.py:149:80: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:153:40: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:153:53: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:153:80: E501 line too long (114 > 79 characters)\n./notebooks/plain_neural_network.py:154:30: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:154:80: E501 line too long (82 > 79 characters)\n./notebooks/plain_neural_network.py:158:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:159:18: E225 missing whitespace around operator\n./notebooks/plain_neural_network.py:160:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:163:80: E501 line too long (84 > 79 characters)\n./notebooks/plain_neural_network.py:164:80: E501 line too long (85 > 79 characters)\n./notebooks/plain_neural_network.py:164:86: W291 trailing whitespace\n./notebooks/plain_neural_network.py:165:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:166:31: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:166:44: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:166:62: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:166:80: E501 line too long (83 > 79 characters)\n./notebooks/plain_neural_network.py:166:80: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:170:40: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:170:53: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:170:80: E501 line too long (114 > 79 characters)\n./notebooks/plain_neural_network.py:171:30: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:171:80: E501 line too long (82 > 79 characters)\n./notebooks/plain_neural_network.py:176:1: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:179:1: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:180:1: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:181:1: W391 blank line at end of file\n./notebooks/filters.py:6:80: E501 line too long (96 > 79 characters)\n./notebooks/filters.py:9:1: F401 'netCDF4.Dataset' imported but unused\n./notebooks/filters.py:10:1: F401 'datetime.timedelta' imported but unused\n./notebooks/filters.py:12:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:30:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:31:1: W293 blank line contains whitespace\n./notebooks/filters.py:39:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:40:9: E117 over-indented\n./notebooks/filters.py:59:1: W293 blank line contains whitespace\n./notebooks/filters.py:60:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:61:9: E117 over-indented (comment)\n./notebooks/filters.py:62:9: E117 over-indented\n./notebooks/filters.py:63:34: E203 whitespace before ':'\n./notebooks/filters.py:72:1: W293 blank line contains whitespace\n./notebooks/filters.py:73:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:74:9: E117 over-indented\n./notebooks/filters.py:81:80: E501 line too long (81 > 79 characters)\n./notebooks/filters.py:86:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:87:5: E125 continuation line with same indent as next logical line\n./notebooks/filters.py:92:80: E501 line too long (84 > 79 characters)\n./notebooks/filters.py:99:5: E303 too many blank lines (2)\n./notebooks/filters.py:118:23: F821 undefined name 'np_mean'\n./notebooks/filters.py:138:80: E501 line too long (81 > 79 characters)\n./notebooks/filters.py:150:80: E501 line too long (82 > 79 characters)\n./notebooks/filters.py:151:80: E501 line too long (82 > 79 characters)\n./notebooks/filters.py:173:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:173:80: E501 line too long (83 > 79 characters)\n./notebooks/filters.py:174:9: E117 over-indented\n./notebooks/filters.py:177:80: E501 line too long (106 > 79 characters)\n./notebooks/filters.py:179:80: E501 line too long (101 > 79 characters)\n./notebooks/filters.py:190:21: W291 trailing whitespace\n./notebooks/filters.py:193:31: W292 no newline at end of file\n./scripts/month_to_year.py:1:1: F401 'numpy as np' imported but unused\n./scripts/month_to_year.py:8:1: E303 too many blank lines (3)\n./scripts/month_to_year.py:14:5: E265 block comment should start with '# '\n./scripts/month_to_year.py:15:5: E265 block comment should start with '# '\n./scripts/month_to_year.py:16:55: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:16:57: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:16:80: E501 line too long (85 > 79 characters)\n./scripts/month_to_year.py:20:1: E305 expected 2 blank lines after class or function definition, found 1\n./scripts/month_to_year.py:21:80: E501 line too long (104 > 79 characters)\n./scripts/month_to_year.py:24:22: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:24: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:60: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:62: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:80: E501 line too long (104 > 79 characters)\n./scripts/month_to_year.py:24:87: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:89: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:105: W292 no newline at end of file\n./scripts/run2.py:6:1: E265 block comment should start with '# '\n./scripts/run2.py:14:80: E501 line too long (155 > 79 characters)\n./scripts/run2.py:17:80: E501 line too long (123 > 79 characters)\n./scripts/plain_neural_network.py:10:1: F401 'tensorflow.keras.preprocessing.image.load_img' imported but unused\n./scripts/plain_neural_network.py:12:1: F401 'keras.layers.Conv2D' imported but unused\n./scripts/plain_neural_network.py:12:1: F401 'keras.layers.MaxPooling2D' imported but unused\n./scripts/plain_neural_network.py:12:1: F401 'keras.layers.Conv2DTranspose' imported but unused\n./scripts/plain_neural_network.py:12:80: E501 line too long (156 > 79 characters)\n./scripts/plain_neural_network.py:14:1: F811 redefinition of unused 'np' from line 9\n./scripts/plain_neural_network.py:15:1: F401 'np_utils' imported but unused\n./scripts/plain_neural_network.py:19:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:39:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:50:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:59:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:65:9: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:66:9: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:72:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:74:5: E303 too many blank lines (2)\n./scripts/plain_neural_network.py:77:40: E203 whitespace before ':'\n./scripts/plain_neural_network.py:78:41: E203 whitespace before ':'\n./scripts/plain_neural_network.py:79:80: E501 line too long (80 > 79 characters)\n./scripts/plain_neural_network.py:80:80: E501 line too long (80 > 79 characters)\n./scripts/plain_neural_network.py:81:9: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:85:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:86:42: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:86:44: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:86:46: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:86:49: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:86:66: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:86:80: E501 line too long (104 > 79 characters)\n./scripts/plain_neural_network.py:86:102: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:89:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:91:5: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:92:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:95:45: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:47: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:50: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:56: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:59: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:64: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:68: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:73: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:77: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:80: E501 line too long (88 > 79 characters)\n./scripts/plain_neural_network.py:95:82: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:89: W291 trailing whitespace\n./scripts/plain_neural_network.py:96:80: E501 line too long (91 > 79 characters)\n./scripts/plain_neural_network.py:100:80: E501 line too long (91 > 79 characters)\n./scripts/plain_neural_network.py:105:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:106:17: E225 missing whitespace around operator\n./scripts/plain_neural_network.py:108:19: E225 missing whitespace around operator\n./scripts/plain_neural_network.py:111:45: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:47: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:51: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:57: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:61: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:66: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:70: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:75: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:80: E501 line too long (80 > 79 characters)\n./scripts/plain_neural_network.py:112:41: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:113:80: E501 line too long (84 > 79 characters)\n./scripts/plain_neural_network.py:113:85: W291 trailing whitespace\n./scripts/plain_neural_network.py:117:80: E501 line too long (84 > 79 characters)\n./scripts/plain_neural_network.py:117:85: W291 trailing whitespace\n./scripts/plain_neural_network.py:124:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:125:40: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:125:79: W291 trailing whitespace\n./scripts/plain_neural_network.py:126:61: W291 trailing whitespace\n./scripts/plain_neural_network.py:133:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:135:5: E122 continuation line missing indentation or outdented\n./scripts/plain_neural_network.py:139:48: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:139:56: E251 unexpected spaces around keyword / parameter equals\n./scripts/plain_neural_network.py:139:58: E251 unexpected spaces around keyword / parameter equals\n./scripts/plain_neural_network.py:139:80: E501 line too long (86 > 79 characters)\n./scripts/plain_neural_network.py:142:18: E225 missing whitespace around operator\n./scripts/plain_neural_network.py:143:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:146:80: E501 line too long (84 > 79 characters)\n./scripts/plain_neural_network.py:147:80: E501 line too long (85 > 79 characters)\n./scripts/plain_neural_network.py:147:86: W291 trailing whitespace\n./scripts/plain_neural_network.py:148:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:149:31: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:149:44: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:149:62: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:149:80: E501 line too long (83 > 79 characters)\n./scripts/plain_neural_network.py:149:80: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:153:40: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:153:53: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:153:80: E501 line too long (114 > 79 characters)\n./scripts/plain_neural_network.py:154:30: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:154:80: E501 line too long (82 > 79 characters)\n./scripts/plain_neural_network.py:158:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:159:18: E225 missing whitespace around operator\n./scripts/plain_neural_network.py:160:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:163:80: E501 line too long (84 > 79 characters)\n./scripts/plain_neural_network.py:164:80: E501 line too long (85 > 79 characters)\n./scripts/plain_neural_network.py:164:86: W291 trailing whitespace\n./scripts/plain_neural_network.py:165:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:166:31: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:166:44: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:166:62: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:166:80: E501 line too long (83 > 79 characters)\n./scripts/plain_neural_network.py:166:80: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:170:40: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:170:53: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:170:80: E501 line too long (114 > 79 characters)\n./scripts/plain_neural_network.py:171:30: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:171:80: E501 line too long (82 > 79 characters)\n./scripts/plain_neural_network.py:176:1: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:179:1: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:180:1: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:181:1: W391 blank line at end of file\n./scripts/run_multiproc.py:2:1: F401 'os' imported but unused\n./scripts/run_multiproc.py:11:1: E302 expected 2 blank lines, found 1\n./scripts/run_multiproc.py:15:1: E305 expected 2 blank lines after class or function definition, found 1\n./scripts/run_multiproc.py:19:1: W293 blank line contains whitespace\n./scripts/run_multiproc.py:25:1: W293 blank line contains whitespace\n./scripts/cnn_training.py:6:1: F401 'tensorflow.keras.preprocessing.image.load_img' imported but unused\n./scripts/cnn_training.py:7:1: F401 'tensorflow.keras.layers' imported but unused\n./scripts/cnn_training.py:9:1: F401 'sklearn.preprocessing' imported but unused\n./scripts/cnn_training.py:10:1: F401 'keras.callbacks.History' imported but unused\n./scripts/cnn_training.py:11:1: F401 'matplotlib.pyplot as plt' imported but unused\n./scripts/cnn_training.py:12:1: F401 'keras.utils.np_utils' imported but unused\n./scripts/cnn_training.py:15:1: F403 'from plain_neural_network import *' used; unable to detect undefined names\n./scripts/cnn_training.py:19:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:22:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:30:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:32:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:33:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:35:10: F405 'xr' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_training.py:35:44: E231 missing whitespace after ','\n./scripts/cnn_training.py:35:52: E251 unexpected spaces around keyword / parameter equals\n./scripts/cnn_training.py:35:54: E251 unexpected spaces around keyword / parameter equals\n./scripts/cnn_training.py:35:80: E501 line too long (82 > 79 characters)\n./scripts/cnn_training.py:38:1: W293 blank line contains whitespace\n./scripts/cnn_training.py:39:4: E225 missing whitespace around operator\n./scripts/cnn_training.py:39:14: E261 at least two spaces before inline comment\n./scripts/cnn_training.py:40:4: E225 missing whitespace around operator\n./scripts/cnn_training.py:45:1: E303 too many blank lines (4)\n./scripts/cnn_training.py:45:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:54:80: E501 line too long (80 > 79 characters)\n./scripts/cnn_training.py:60:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:62:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:63:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:65:10: F405 'xr' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_training.py:65:44: E231 missing whitespace after ','\n./scripts/cnn_training.py:65:52: E251 unexpected spaces around keyword / parameter equals\n./scripts/cnn_training.py:65:54: E251 unexpected spaces around keyword / parameter equals\n./scripts/cnn_training.py:65:80: E501 line too long (82 > 79 characters)\n./scripts/cnn_training.py:68:16: E225 missing whitespace around operator\n./scripts/cnn_training.py:68:25: E261 at least two spaces before inline comment\n./scripts/cnn_training.py:71:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:71:80: E501 line too long (99 > 79 characters)\n./scripts/cnn_training.py:72:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:72:80: E501 line too long (85 > 79 characters)\n./scripts/cnn_training.py:75:15: E231 missing whitespace after ','\n./scripts/cnn_training.py:76:15: E231 missing whitespace after ','\n./scripts/cnn_training.py:77:15: E231 missing whitespace after ','\n./scripts/cnn_training.py:78:15: E231 missing whitespace after ','\n./scripts/cnn_training.py:79:34: E231 missing whitespace after ','\n./scripts/cnn_training.py:80:34: E231 missing whitespace after ','\n./scripts/cnn_training.py:82:17: E231 missing whitespace after ','\n./scripts/cnn_training.py:83:19: E231 missing whitespace after ','\n./scripts/cnn_training.py:84:19: E231 missing whitespace after ','\n./scripts/cnn_training.py:85:19: E231 missing whitespace after ','\n./scripts/cnn_training.py:86:19: E231 missing whitespace after ','\n./scripts/cnn_training.py:87:62: E231 missing whitespace after ','\n./scripts/cnn_training.py:87:80: E501 line too long (90 > 79 characters)\n./scripts/cnn_training.py:88:62: E231 missing whitespace after ','\n./scripts/cnn_training.py:88:80: E501 line too long (90 > 79 characters)\n./scripts/cnn_training.py:89:1: W293 blank line contains whitespace\n./scripts/cnn_training.py:90:40: W291 trailing whitespace\n./scripts/cnn_training.py:91:25: E231 missing whitespace after ','\n./scripts/cnn_training.py:94:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:104:9: F405 'get_model' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_training.py:107:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:107:15: W291 trailing whitespace\n./scripts/cnn_training.py:108:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:109:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:109:80: E501 line too long (109 > 79 characters)\n./scripts/cnn_training.py:118:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:120:27: E231 missing whitespace after ','\n./scripts/cnn_training.py:120:29: E231 missing whitespace after ','\n./scripts/cnn_training.py:121:27: E231 missing whitespace after ','\n./scripts/cnn_training.py:121:29: E231 missing whitespace after ','\n./scripts/cnn_training.py:123:66: E225 missing whitespace around operator\n./scripts/cnn_training.py:123:80: E501 line too long (95 > 79 characters)\n./scripts/cnn_training.py:125:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:127:26: E231 missing whitespace after ','\n./scripts/cnn_training.py:127:28: E231 missing whitespace after ','\n./scripts/cnn_training.py:128:26: E231 missing whitespace after ','\n./scripts/cnn_training.py:128:28: E231 missing whitespace after ','\n./scripts/cnn_training.py:130:80: E501 line too long (93 > 79 characters)\n./scripts/cnn_training.py:132:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:134:25: E231 missing whitespace after ','\n./scripts/cnn_training.py:134:27: E231 missing whitespace after ','\n./scripts/cnn_training.py:135:25: E231 missing whitespace after ','\n./scripts/cnn_training.py:135:27: E231 missing whitespace after ','\n./scripts/cnn_training.py:137:80: E501 line too long (90 > 79 characters)\n./scripts/cnn_training.py:138:1: W293 blank line contains whitespace\n./scripts/cnn_training.py:139:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:140:80: E501 line too long (109 > 79 characters)\n./scripts/cnn_training.py:142:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:143:5: E265 block comment should start with '# '\n./scripts/cnn_training.py:143:80: E501 line too long (149 > 79 characters)\n./scripts/cnn_training.py:144:80: E501 line too long (148 > 79 characters)\n./scripts/cnn_training.py:145:1: W293 blank line contains whitespace\n./scripts/cnn_training.py:146:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:153:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:165:13: F405 'plain_net_eddy' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_training.py:166:11: F405 'plain_net_eddy' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_training.py:167:29: E231 missing whitespace after ','\n./scripts/cnn_training.py:171:1: E303 too many blank lines (3)\n./scripts/cnn_training.py:171:78: E261 at least two spaces before inline comment\n./scripts/cnn_training.py:171:79: E262 inline comment should start with '# '\n./scripts/cnn_training.py:171:80: E501 line too long (128 > 79 characters)\n./scripts/cnn_training.py:172:80: E501 line too long (134 > 79 characters)\n./scripts/cnn_training.py:174:80: E501 line too long (145 > 79 characters)\n./scripts/cnn_training.py:174:81: E203 whitespace before ','\n./scripts/cnn_training.py:174:102: E231 missing whitespace after ','\n./scripts/cnn_training.py:175:13: E128 continuation line under-indented for visual indent\n./scripts/cnn_training.py:175:80: E501 line too long (146 > 79 characters)\n./scripts/cnn_training.py:177:80: E501 line too long (115 > 79 characters)\n./scripts/cnn_training.py:177:105: E231 missing whitespace after ','\n./scripts/cnn_training.py:182:1: W391 blank line at end of file\n./scripts/cnn_predicted_data_generation.py:4:1: F401 'tensorflow as tf' imported but unused\n./scripts/cnn_predicted_data_generation.py:5:1: F401 'tensorflow.keras' imported but unused\n./scripts/cnn_predicted_data_generation.py:7:1: F401 'tensorflow.keras.layers' imported but unused\n./scripts/cnn_predicted_data_generation.py:8:1: F401 'keras.callbacks.History' imported but unused\n./scripts/cnn_predicted_data_generation.py:9:1: F401 'matplotlib.pyplot as plt' imported but unused\n./scripts/cnn_predicted_data_generation.py:10:1: F401 'os' imported but unused\n./scripts/cnn_predicted_data_generation.py:11:1: F401 'tensorflow.keras.optimizers.Adam' imported but unused\n./scripts/cnn_predicted_data_generation.py:12:1: F403 'from plain_neural_network import *' used; unable to detect undefined names\n./scripts/cnn_predicted_data_generation.py:13:1: F401 'sklearn.metrics.classification_report' imported but unused\n./scripts/cnn_predicted_data_generation.py:17:1: E303 too many blank lines (3)\n./scripts/cnn_predicted_data_generation.py:19:67: E261 at least two spaces before inline comment\n./scripts/cnn_predicted_data_generation.py:19:68: E262 inline comment should start with '# '\n./scripts/cnn_predicted_data_generation.py:19:80: E501 line too long (95 > 79 characters)\n./scripts/cnn_predicted_data_generation.py:20:75: E261 at least two spaces before inline comment\n./scripts/cnn_predicted_data_generation.py:20:76: E262 inline comment should start with '# '\n./scripts/cnn_predicted_data_generation.py:20:80: E501 line too long (105 > 79 characters)\n./scripts/cnn_predicted_data_generation.py:22:17: F405 'using_model' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_predicted_data_generation.py:25:1: E265 block comment should start with '# '\n./scripts/cnn_predicted_data_generation.py:25:68: W292 no newline at end of file\n./scripts/cnn_predicted_data_generation.py:25:68: W292 no newline at end of file\n./scripts/cnn_predicted_data_generation.py:25:68: W292 no newline at end of file\n./scripts/run.py:12:1: F403 'from interpolator_func import *' used; unable to detect undefined names\n./scripts/run.py:13:1: F401 'month_to_year as m2y' imported but unused\n./scripts/run.py:15:1: E265 block comment should start with '# '\n./scripts/run.py:45:1: E303 too many blank lines (3)\n./scripts/run.py:45:1: E265 block comment should start with '# '\n./scripts/run.py:50:15: F405 'input_path_data' may be undefined, or defined from star imports: interpolator_func\n./scripts/run.py:53:15: F405 'input_path_grid' may be undefined, or defined from star imports: interpolator_func\n./scripts/run.py:65:23: F405 'Interpolator' may be undefined, or defined from star imports: interpolator_func\n./scripts/run.py:65:80: E501 line too long (209 > 79 characters)\n./scripts/run.py:66:80: E501 line too long (88 > 79 characters)\n./scripts/run.py:66:84: E251 unexpected spaces around keyword / parameter equals\n./scripts/run.py:66:86: E251 unexpected spaces around keyword / parameter equals\n./scripts/run.py:68:1: W391 blank line at end of file\n./scripts/generic_eddy_class.py:3:1: F401 'matplotlib.path.Path' imported but unused\n./scripts/generic_eddy_class.py:6:1: F401 'py_eddy_tracker.data' imported but unused\n./scripts/generic_eddy_class.py:8:1: F401 'py_eddy_tracker.poly.create_vertice' imported but unused\n./scripts/generic_eddy_class.py:9:1: F401 're' imported but unused\n./scripts/generic_eddy_class.py:12:1: F401 'matplotlib.animation.FuncAnimation' imported but unused\n./scripts/generic_eddy_class.py:13:1: F811 redefinition of unused 'arange' from line 4\n./scripts/generic_eddy_class.py:13:1: F401 'numpy.arange' imported but unused\n./scripts/generic_eddy_class.py:13:1: F401 'numpy.isnan' imported but unused\n./scripts/generic_eddy_class.py:13:1: F401 'numpy.meshgrid' imported but unused\n./scripts/generic_eddy_class.py:13:1: F401 'numpy.ones' imported but unused\n./scripts/generic_eddy_class.py:15:1: F401 'py_eddy_tracker.start_logger' imported but unused\n./scripts/generic_eddy_class.py:16:1: F401 'py_eddy_tracker.data.get_demo_path' imported but unused\n./scripts/generic_eddy_class.py:18:1: F401 'py_eddy_tracker.gui.GUI_AXES' imported but unused\n./scripts/generic_eddy_class.py:19:1: F401 'netCDF4.Dataset' imported but unused\n./scripts/generic_eddy_class.py:20:1: F401 'xarray as xr' imported but unused\n./scripts/generic_eddy_class.py:21:1: F401 'pandas as pd' imported but unused\n./scripts/generic_eddy_class.py:22:1: F811 redefinition of unused 'np' from line 1\n./scripts/generic_eddy_class.py:23:1: F401 'matplotlib.cm' imported but unused\n./scripts/generic_eddy_class.py:24:1: F401 'os' imported but unused\n./scripts/generic_eddy_class.py:28:1: E302 expected 2 blank lines, found 1\n./scripts/generic_eddy_class.py:34:34: W291 trailing whitespace\n./scripts/generic_eddy_class.py:40:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:44:80: E501 line too long (84 > 79 characters)\n./scripts/generic_eddy_class.py:50:5: E303 too many blank lines (2)\n./scripts/generic_eddy_class.py:53:80: E501 line too long (83 > 79 characters)\n./scripts/generic_eddy_class.py:63:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:68:80: E501 line too long (84 > 79 characters)\n./scripts/generic_eddy_class.py:73:30: E231 missing whitespace after ':'\n./scripts/generic_eddy_class.py:76:80: E501 line too long (88 > 79 characters)\n./scripts/generic_eddy_class.py:79:5: E301 expected 1 blank line, found 0\n./scripts/generic_eddy_class.py:79:38: E203 whitespace before ':'\n./scripts/generic_eddy_class.py:81:36: E203 whitespace before ','\n./scripts/generic_eddy_class.py:81:80: E501 line too long (104 > 79 characters)\n./scripts/generic_eddy_class.py:82:80: E501 line too long (137 > 79 characters)\n./scripts/generic_eddy_class.py:86:5: E301 expected 1 blank line, found 0\n./scripts/generic_eddy_class.py:86:40: E231 missing whitespace after ':'\n./scripts/generic_eddy_class.py:90:80: E501 line too long (94 > 79 characters)\n./scripts/generic_eddy_class.py:92:80: E501 line too long (123 > 79 characters)\n./scripts/generic_eddy_class.py:96:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:98:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:99:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:100:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:100:1: E303 too many blank lines (4)\n./scripts/generic_eddy_class.py:100:9: W292 no newline at end of file\n./scripts/interpolator_func.py:13:80: E501 line too long (105 > 79 characters)\n./scripts/interpolator_func.py:13:106: W291 trailing whitespace\n./scripts/interpolator_func.py:17:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:18:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:19:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:20:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:21:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:22:1: F401 'scipy.interpolate.CloughTocher2DInterpolator' imported but unused\n./scripts/interpolator_func.py:22:1: F401 'scipy.interpolate.LinearNDInterpolator' imported but unused\n./scripts/interpolator_func.py:22:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:22:80: E501 line too long (101 > 79 characters)\n./scripts/interpolator_func.py:23:1: F401 'scipy.spatial.qhull' imported but unused\n./scripts/interpolator_func.py:23:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:24:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:25:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:26:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:27:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:28:1: F401 'datetime.datetime' imported but unused\n./scripts/interpolator_func.py:28:1: F401 'datetime.timedelta' imported but unused\n./scripts/interpolator_func.py:28:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:29:1: F401 'pandas.to_datetime' imported but unused\n./scripts/interpolator_func.py:29:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:30:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:32:1: E265 block comment should start with '# '\n./scripts/interpolator_func.py:35:1: E302 expected 2 blank lines, found 1\n./scripts/interpolator_func.py:36:36: E231 missing whitespace after ':'\n./scripts/interpolator_func.py:36:40: E203 whitespace before ','\n./scripts/interpolator_func.py:36:80: E501 line too long (218 > 79 characters)\n./scripts/interpolator_func.py:44:80: E501 line too long (119 > 79 characters)\n./scripts/interpolator_func.py:53:46: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:53:48: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:53:80: E501 line too long (94 > 79 characters)\n./scripts/interpolator_func.py:65:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:72:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:81:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:82:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:83:80: E501 line too long (111 > 79 characters)\n./scripts/interpolator_func.py:85:80: E501 line too long (115 > 79 characters)\n./scripts/interpolator_func.py:88:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:90:5: E303 too many blank lines (3)\n./scripts/interpolator_func.py:91:80: E501 line too long (90 > 79 characters)\n./scripts/interpolator_func.py:92:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:99:80: E501 line too long (119 > 79 characters)\n./scripts/interpolator_func.py:101:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:102:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:103:50: W291 trailing whitespace\n./scripts/interpolator_func.py:104:50: W291 trailing whitespace\n./scripts/interpolator_func.py:121:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:126:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:128:80: E501 line too long (109 > 79 characters)\n./scripts/interpolator_func.py:132:80: E501 line too long (85 > 79 characters)\n./scripts/interpolator_func.py:139:13: W291 trailing whitespace\n./scripts/interpolator_func.py:150:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:157:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:158:80: E501 line too long (119 > 79 characters)\n./scripts/interpolator_func.py:165:80: E501 line too long (87 > 79 characters)\n./scripts/interpolator_func.py:167:80: E501 line too long (93 > 79 characters)\n./scripts/interpolator_func.py:170:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:172:77: E231 missing whitespace after ','\n./scripts/interpolator_func.py:172:80: E501 line too long (91 > 79 characters)\n./scripts/interpolator_func.py:174:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:175:61: W291 trailing whitespace\n./scripts/interpolator_func.py:176:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:180:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:181:79: W291 trailing whitespace\n./scripts/interpolator_func.py:182:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:186:80: E501 line too long (84 > 79 characters)\n./scripts/interpolator_func.py:188:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:190:31: E231 missing whitespace after ','\n./scripts/interpolator_func.py:193:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:194:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:195:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:196:5: E303 too many blank lines (3)\n./scripts/interpolator_func.py:198:80: E501 line too long (120 > 79 characters)\n./scripts/interpolator_func.py:203:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:205:44: E231 missing whitespace after ','\n./scripts/interpolator_func.py:206:80: E501 line too long (100 > 79 characters)\n./scripts/interpolator_func.py:207:80: E501 line too long (108 > 79 characters)\n./scripts/interpolator_func.py:210:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:211:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:212:5: E303 too many blank lines (2)\n./scripts/interpolator_func.py:214:80: E501 line too long (114 > 79 characters)\n./scripts/interpolator_func.py:217:80: E501 line too long (115 > 79 characters)\n./scripts/interpolator_func.py:221:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:222:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:223:9: E303 too many blank lines (2)\n./scripts/interpolator_func.py:223:35: W291 trailing whitespace\n./scripts/interpolator_func.py:224:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:226:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:229:48: E231 missing whitespace after ','\n./scripts/interpolator_func.py:230:80: E501 line too long (98 > 79 characters)\n./scripts/interpolator_func.py:232:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:235:42: E231 missing whitespace after ','\n./scripts/interpolator_func.py:236:80: E501 line too long (100 > 79 characters)\n./scripts/interpolator_func.py:237:13: E265 block comment should start with '# '\n./scripts/interpolator_func.py:237:80: E501 line too long (93 > 79 characters)\n./scripts/interpolator_func.py:239:48: E231 missing whitespace after ','\n./scripts/interpolator_func.py:240:80: E501 line too long (146 > 79 characters)\n./scripts/interpolator_func.py:242:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:246:80: E501 line too long (82 > 79 characters)\n./scripts/interpolator_func.py:247:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:248:40: E231 missing whitespace after ','\n./scripts/interpolator_func.py:249:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:250:80: E501 line too long (87 > 79 characters)\n./scripts/interpolator_func.py:252:80: E501 line too long (123 > 79 characters)\n./scripts/interpolator_func.py:252:124: W291 trailing whitespace\n./scripts/interpolator_func.py:253:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:259:80: E501 line too long (117 > 79 characters)\n./scripts/interpolator_func.py:262:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:264:22: E225 missing whitespace around operator\n./scripts/interpolator_func.py:264:57: E261 at least two spaces before inline comment\n./scripts/interpolator_func.py:264:58: E262 inline comment should start with '# '\n./scripts/interpolator_func.py:264:80: E501 line too long (96 > 79 characters)\n./scripts/interpolator_func.py:265:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:267:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:268:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:272:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:273:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:275:13: E221 multiple spaces before operator\n./scripts/interpolator_func.py:275:66: W291 trailing whitespace\n./scripts/interpolator_func.py:276:57: W291 trailing whitespace\n./scripts/interpolator_func.py:277:38: E231 missing whitespace after ','\n./scripts/interpolator_func.py:277:58: E231 missing whitespace after ','\n./scripts/interpolator_func.py:277:80: E501 line too long (83 > 79 characters)\n./scripts/interpolator_func.py:278:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:279:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:280:9: E303 too many blank lines (2)\n./scripts/interpolator_func.py:280:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:286:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:287:30: E231 missing whitespace after ','\n./scripts/interpolator_func.py:288:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:289:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:291:80: E501 line too long (80 > 79 characters)\n./scripts/interpolator_func.py:296:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:297:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:300:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:301:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:304:32: W291 trailing whitespace\n./scripts/interpolator_func.py:305:15: E225 missing whitespace around operator\n./scripts/interpolator_func.py:306:14: E225 missing whitespace around operator\n./scripts/interpolator_func.py:308:80: E501 line too long (119 > 79 characters)\n./scripts/interpolator_func.py:308:85: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:308:87: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:308:96: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:308:98: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:308:110: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:308:112: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:311:51: E261 at least two spaces before inline comment\n./scripts/interpolator_func.py:311:52: E262 inline comment should start with '# '\n./scripts/interpolator_func.py:312:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:314:20: W291 trailing whitespace\n./scripts/interpolator_func.py:315:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:316:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:317:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:318:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:319:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:320:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:321:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:322:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:323:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:324:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:325:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:326:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:327:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:328:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:329:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:330:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:331:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:332:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:333:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:334:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:335:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:336:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:337:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:338:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:339:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:340:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:341:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:342:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:343:1: W293 blank line contains whitespace\n./scripts/filters.py:6:80: E501 line too long (96 > 79 characters)\n./scripts/filters.py:9:1: F401 'netCDF4.Dataset' imported but unused\n./scripts/filters.py:10:1: F401 'datetime.timedelta' imported but unused\n./scripts/filters.py:12:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:30:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:31:1: W293 blank line contains whitespace\n./scripts/filters.py:39:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:40:9: E117 over-indented\n./scripts/filters.py:59:1: W293 blank line contains whitespace\n./scripts/filters.py:60:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:61:9: E117 over-indented (comment)\n./scripts/filters.py:62:9: E117 over-indented\n./scripts/filters.py:63:34: E203 whitespace before ':'\n./scripts/filters.py:72:1: W293 blank line contains whitespace\n./scripts/filters.py:73:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:74:9: E117 over-indented\n./scripts/filters.py:81:80: E501 line too long (81 > 79 characters)\n./scripts/filters.py:86:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:87:5: E125 continuation line with same indent as next logical line\n./scripts/filters.py:92:80: E501 line too long (84 > 79 characters)\n./scripts/filters.py:99:5: E303 too many blank lines (2)\n./scripts/filters.py:118:23: F821 undefined name 'np_mean'\n./scripts/filters.py:138:80: E501 line too long (81 > 79 characters)\n./scripts/filters.py:150:80: E501 line too long (82 > 79 characters)\n./scripts/filters.py:151:80: E501 line too long (82 > 79 characters)\n./scripts/filters.py:173:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:173:80: E501 line too long (83 > 79 characters)\n./scripts/filters.py:174:9: E117 over-indented\n./scripts/filters.py:177:80: E501 line too long (106 > 79 characters)\n./scripts/filters.py:179:80: E501 line too long (101 > 79 characters)\n./scripts/filters.py:190:21: W291 trailing whitespace\n./scripts/filters.py:193:31: W292 no newline at end of file\n./scripts/generate_segmentation_mask.py:2:1: F401 'matplotlib.pyplot as plt' imported but unused\n./scripts/generate_segmentation_mask.py:6:1: F401 'py_eddy_tracker.data' imported but unused\n./scripts/generate_segmentation_mask.py:7:1: F401 'py_eddy_tracker.dataset.grid.RegularGridDataset' imported but unused\n./scripts/generate_segmentation_mask.py:10:1: F401 're' imported but unused\n./scripts/generate_segmentation_mask.py:11:1: F401 'datetime.datetime' imported but unused\n./scripts/generate_segmentation_mask.py:11:1: F401 'datetime.timedelta' imported but unused\n./scripts/generate_segmentation_mask.py:13:1: F401 'matplotlib.animation.FuncAnimation' imported but unused\n./scripts/generate_segmentation_mask.py:14:1: F811 redefinition of unused 'arange' from line 4\n./scripts/generate_segmentation_mask.py:14:1: F401 'numpy.arange' imported but unused\n./scripts/generate_segmentation_mask.py:14:1: F401 'numpy.isnan' imported but unused\n./scripts/generate_segmentation_mask.py:14:1: F401 'numpy.meshgrid' imported but unused\n./scripts/generate_segmentation_mask.py:14:1: F401 'numpy.ones' imported but unused\n./scripts/generate_segmentation_mask.py:16:1: F401 'py_eddy_tracker.start_logger' imported but unused\n./scripts/generate_segmentation_mask.py:17:1: F401 'py_eddy_tracker.data.get_demo_path' imported but unused\n./scripts/generate_segmentation_mask.py:18:1: F401 'py_eddy_tracker.dataset.grid.GridCollection' imported but unused\n./scripts/generate_segmentation_mask.py:19:1: F401 'py_eddy_tracker.gui.GUI_AXES' imported but unused\n./scripts/generate_segmentation_mask.py:20:1: F401 'netCDF4.Dataset' imported but unused\n./scripts/generate_segmentation_mask.py:22:1: F401 'pandas as pd' imported but unused\n./scripts/generate_segmentation_mask.py:23:1: F811 redefinition of unused 'np' from line 1\n./scripts/generate_segmentation_mask.py:24:1: F401 'matplotlib.cm' imported but unused\n./scripts/generate_segmentation_mask.py:30:1: F401 'typing.List' imported but unused\n./scripts/generate_segmentation_mask.py:30:1: F401 'typing.Tuple' imported but unused\n./scripts/generate_segmentation_mask.py:30:1: E303 too many blank lines (3)\n./scripts/generate_segmentation_mask.py:32:1: E302 expected 2 blank lines, found 1\n./scripts/generate_segmentation_mask.py:33:43: W291 trailing whitespace\n./scripts/generate_segmentation_mask.py:35:80: E501 line too long (84 > 79 characters)\n./scripts/generate_segmentation_mask.py:35:85: W291 trailing whitespace\n./scripts/generate_segmentation_mask.py:36:80: E501 line too long (82 > 79 characters)\n./scripts/generate_segmentation_mask.py:40:1: W293 blank line contains whitespace\n./scripts/generate_segmentation_mask.py:46:20: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:47:40: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:48:40: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:50:20: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:51:40: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:52:40: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:58:80: E501 line too long (84 > 79 characters)\n./scripts/generate_segmentation_mask.py:62:80: E501 line too long (84 > 79 characters)\n./scripts/generate_segmentation_mask.py:65:5: E301 expected 1 blank line, found 0\n./scripts/generate_segmentation_mask.py:75:42: E231 missing whitespace after ','\n./scripts/generate_segmentation_mask.py:77:5: E301 expected 1 blank line, found 0\n./scripts/generate_segmentation_mask.py:83:40: E251 unexpected spaces around keyword / parameter equals\n./scripts/generate_segmentation_mask.py:83:42: E251 unexpected spaces around keyword / parameter equals\n./scripts/generate_segmentation_mask.py:84:80: E501 line too long (89 > 79 characters)\n./scripts/generate_segmentation_mask.py:90:1: E305 expected 2 blank lines after class or function definition, found 1\n./scripts/generate_segmentation_mask.py:91:5: E265 block comment should start with '# '\n./scripts/generate_segmentation_mask.py:93:80: E501 line too long (114 > 79 characters)\n./scripts/generate_segmentation_mask.py:95:80: E501 line too long (113 > 79 characters)\n./scripts/generate_segmentation_mask.py:100:80: E501 line too long (100 > 79 characters)\n./scripts/generate_segmentation_mask.py:102:80: E501 line too long (102 > 79 characters)\n./scripts/generate_segmentation_mask.py:104:33: E231 missing whitespace after ','\n./scripts/generate_segmentation_mask.py:105:80: E501 line too long (144 > 79 characters)\n./scripts/generate_segmentation_mask.py:109:80: E501 line too long (155 > 79 characters)\n./scripts/generate_segmentation_mask.py:110:62: W292 no newline at end of file\n./scripts/cnn_testing.py:4:1: F401 'tensorflow as tf' imported but unused\n./scripts/cnn_testing.py:5:1: F401 'tensorflow.keras' imported but unused\n./scripts/cnn_testing.py:7:1: F401 'tensorflow.keras.layers' imported but unused\n./scripts/cnn_testing.py:8:1: F401 'keras.callbacks.History' imported but unused\n./scripts/cnn_testing.py:9:1: F401 'matplotlib.pyplot as plt' imported but unused\n./scripts/cnn_testing.py:10:1: F401 'os' imported but unused\n./scripts/cnn_testing.py:11:1: F401 'tensorflow.keras.optimizers.Adam' imported but unused\n./scripts/cnn_testing.py:12:1: F403 'from plain_neural_network import *' used; unable to detect undefined names\n./scripts/cnn_testing.py:13:1: F401 'sklearn.metrics.classification_report' imported but unused\n./scripts/cnn_testing.py:17:1: E303 too many blank lines (3)\n./scripts/cnn_testing.py:19:55: E261 at least two spaces before inline comment\n./scripts/cnn_testing.py:19:56: E262 inline comment should start with '# '\n./scripts/cnn_testing.py:19:80: E501 line too long (83 > 79 characters)\n./scripts/cnn_testing.py:20:62: E261 at least two spaces before inline comment\n./scripts/cnn_testing.py:20:63: E262 inline comment should start with '# '\n./scripts/cnn_testing.py:20:80: E501 line too long (92 > 79 characters)\n./scripts/cnn_testing.py:22:20: F405 'using_model' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_testing.py:25:1: E265 block comment should start with '# '\n./scripts/cnn_testing.py:26:1: W391 blank line at end of file",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/88/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": "./notebooks/plain_neural_network.py:10:1: F401 'tensorflow.keras.preprocessing.image.load_img' imported but unused\n./notebooks/plain_neural_network.py:12:1: F401 'keras.layers.Conv2D' imported but unused\n./notebooks/plain_neural_network.py:12:1: F401 'keras.layers.MaxPooling2D' imported but unused\n./notebooks/plain_neural_network.py:12:1: F401 'keras.layers.Conv2DTranspose' imported but unused\n./notebooks/plain_neural_network.py:12:80: E501 line too long (156 > 79 characters)\n./notebooks/plain_neural_network.py:14:1: F811 redefinition of unused 'np' from line 9\n./notebooks/plain_neural_network.py:15:1: F401 'np_utils' imported but unused\n./notebooks/plain_neural_network.py:19:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:39:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:50:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:59:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:65:9: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:66:9: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:72:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:74:5: E303 too many blank lines (2)\n./notebooks/plain_neural_network.py:77:40: E203 whitespace before ':'\n./notebooks/plain_neural_network.py:78:41: E203 whitespace before ':'\n./notebooks/plain_neural_network.py:79:80: E501 line too long (80 > 79 characters)\n./notebooks/plain_neural_network.py:80:80: E501 line too long (80 > 79 characters)\n./notebooks/plain_neural_network.py:81:9: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:85:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:86:42: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:86:44: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:86:46: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:86:49: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:86:66: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:86:80: E501 line too long (104 > 79 characters)\n./notebooks/plain_neural_network.py:86:102: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:89:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:91:5: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:92:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:95:45: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:47: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:50: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:56: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:59: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:64: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:68: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:73: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:77: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:80: E501 line too long (88 > 79 characters)\n./notebooks/plain_neural_network.py:95:82: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:95:89: W291 trailing whitespace\n./notebooks/plain_neural_network.py:96:80: E501 line too long (91 > 79 characters)\n./notebooks/plain_neural_network.py:100:80: E501 line too long (91 > 79 characters)\n./notebooks/plain_neural_network.py:105:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:106:17: E225 missing whitespace around operator\n./notebooks/plain_neural_network.py:108:19: E225 missing whitespace around operator\n./notebooks/plain_neural_network.py:111:45: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:47: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:51: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:57: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:61: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:66: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:70: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:75: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:111:80: E501 line too long (80 > 79 characters)\n./notebooks/plain_neural_network.py:112:41: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:113:80: E501 line too long (84 > 79 characters)\n./notebooks/plain_neural_network.py:113:85: W291 trailing whitespace\n./notebooks/plain_neural_network.py:117:80: E501 line too long (84 > 79 characters)\n./notebooks/plain_neural_network.py:117:85: W291 trailing whitespace\n./notebooks/plain_neural_network.py:124:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:125:40: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:125:79: W291 trailing whitespace\n./notebooks/plain_neural_network.py:126:61: W291 trailing whitespace\n./notebooks/plain_neural_network.py:133:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:135:5: E122 continuation line missing indentation or outdented\n./notebooks/plain_neural_network.py:139:48: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:139:56: E251 unexpected spaces around keyword / parameter equals\n./notebooks/plain_neural_network.py:139:58: E251 unexpected spaces around keyword / parameter equals\n./notebooks/plain_neural_network.py:139:80: E501 line too long (86 > 79 characters)\n./notebooks/plain_neural_network.py:142:18: E225 missing whitespace around operator\n./notebooks/plain_neural_network.py:143:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:146:80: E501 line too long (84 > 79 characters)\n./notebooks/plain_neural_network.py:147:80: E501 line too long (85 > 79 characters)\n./notebooks/plain_neural_network.py:147:86: W291 trailing whitespace\n./notebooks/plain_neural_network.py:148:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:149:31: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:149:44: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:149:62: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:149:80: E501 line too long (83 > 79 characters)\n./notebooks/plain_neural_network.py:149:80: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:153:40: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:153:53: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:153:80: E501 line too long (114 > 79 characters)\n./notebooks/plain_neural_network.py:154:30: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:154:80: E501 line too long (82 > 79 characters)\n./notebooks/plain_neural_network.py:158:1: E302 expected 2 blank lines, found 1\n./notebooks/plain_neural_network.py:159:18: E225 missing whitespace around operator\n./notebooks/plain_neural_network.py:160:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:163:80: E501 line too long (84 > 79 characters)\n./notebooks/plain_neural_network.py:164:80: E501 line too long (85 > 79 characters)\n./notebooks/plain_neural_network.py:164:86: W291 trailing whitespace\n./notebooks/plain_neural_network.py:165:1: W293 blank line contains whitespace\n./notebooks/plain_neural_network.py:166:31: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:166:44: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:166:62: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:166:80: E501 line too long (83 > 79 characters)\n./notebooks/plain_neural_network.py:166:80: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:170:40: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:170:53: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:170:80: E501 line too long (114 > 79 characters)\n./notebooks/plain_neural_network.py:171:30: E231 missing whitespace after ','\n./notebooks/plain_neural_network.py:171:80: E501 line too long (82 > 79 characters)\n./notebooks/plain_neural_network.py:176:1: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:179:1: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:180:1: E265 block comment should start with '# '\n./notebooks/plain_neural_network.py:181:1: W391 blank line at end of file\n./notebooks/filters.py:6:80: E501 line too long (96 > 79 characters)\n./notebooks/filters.py:9:1: F401 'netCDF4.Dataset' imported but unused\n./notebooks/filters.py:10:1: F401 'datetime.timedelta' imported but unused\n./notebooks/filters.py:12:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:30:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:31:1: W293 blank line contains whitespace\n./notebooks/filters.py:39:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:40:9: E117 over-indented\n./notebooks/filters.py:59:1: W293 blank line contains whitespace\n./notebooks/filters.py:60:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:61:9: E117 over-indented (comment)\n./notebooks/filters.py:62:9: E117 over-indented\n./notebooks/filters.py:63:34: E203 whitespace before ':'\n./notebooks/filters.py:72:1: W293 blank line contains whitespace\n./notebooks/filters.py:73:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:74:9: E117 over-indented\n./notebooks/filters.py:81:80: E501 line too long (81 > 79 characters)\n./notebooks/filters.py:86:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:87:5: E125 continuation line with same indent as next logical line\n./notebooks/filters.py:92:80: E501 line too long (84 > 79 characters)\n./notebooks/filters.py:99:5: E303 too many blank lines (2)\n./notebooks/filters.py:118:23: F821 undefined name 'np_mean'\n./notebooks/filters.py:138:80: E501 line too long (81 > 79 characters)\n./notebooks/filters.py:150:80: E501 line too long (82 > 79 characters)\n./notebooks/filters.py:151:80: E501 line too long (82 > 79 characters)\n./notebooks/filters.py:173:1: E302 expected 2 blank lines, found 1\n./notebooks/filters.py:173:80: E501 line too long (83 > 79 characters)\n./notebooks/filters.py:174:9: E117 over-indented\n./notebooks/filters.py:177:80: E501 line too long (106 > 79 characters)\n./notebooks/filters.py:179:80: E501 line too long (101 > 79 characters)\n./notebooks/filters.py:190:21: W291 trailing whitespace\n./notebooks/filters.py:193:31: W292 no newline at end of file\n./scripts/month_to_year.py:1:1: F401 'numpy as np' imported but unused\n./scripts/month_to_year.py:8:1: E303 too many blank lines (3)\n./scripts/month_to_year.py:14:5: E265 block comment should start with '# '\n./scripts/month_to_year.py:15:5: E265 block comment should start with '# '\n./scripts/month_to_year.py:16:55: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:16:57: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:16:80: E501 line too long (85 > 79 characters)\n./scripts/month_to_year.py:20:1: E305 expected 2 blank lines after class or function definition, found 1\n./scripts/month_to_year.py:21:80: E501 line too long (104 > 79 characters)\n./scripts/month_to_year.py:24:22: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:24: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:60: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:62: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:80: E501 line too long (104 > 79 characters)\n./scripts/month_to_year.py:24:87: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:89: E251 unexpected spaces around keyword / parameter equals\n./scripts/month_to_year.py:24:105: W292 no newline at end of file\n./scripts/run2.py:6:1: E265 block comment should start with '# '\n./scripts/run2.py:14:80: E501 line too long (155 > 79 characters)\n./scripts/run2.py:17:80: E501 line too long (123 > 79 characters)\n./scripts/plain_neural_network.py:10:1: F401 'tensorflow.keras.preprocessing.image.load_img' imported but unused\n./scripts/plain_neural_network.py:12:1: F401 'keras.layers.Conv2D' imported but unused\n./scripts/plain_neural_network.py:12:1: F401 'keras.layers.MaxPooling2D' imported but unused\n./scripts/plain_neural_network.py:12:1: F401 'keras.layers.Conv2DTranspose' imported but unused\n./scripts/plain_neural_network.py:12:80: E501 line too long (156 > 79 characters)\n./scripts/plain_neural_network.py:14:1: F811 redefinition of unused 'np' from line 9\n./scripts/plain_neural_network.py:15:1: F401 'np_utils' imported but unused\n./scripts/plain_neural_network.py:19:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:39:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:50:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:59:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:65:9: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:66:9: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:72:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:74:5: E303 too many blank lines (2)\n./scripts/plain_neural_network.py:77:40: E203 whitespace before ':'\n./scripts/plain_neural_network.py:78:41: E203 whitespace before ':'\n./scripts/plain_neural_network.py:79:80: E501 line too long (80 > 79 characters)\n./scripts/plain_neural_network.py:80:80: E501 line too long (80 > 79 characters)\n./scripts/plain_neural_network.py:81:9: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:85:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:86:42: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:86:44: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:86:46: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:86:49: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:86:66: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:86:80: E501 line too long (104 > 79 characters)\n./scripts/plain_neural_network.py:86:102: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:89:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:91:5: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:92:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:95:45: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:47: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:50: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:56: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:59: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:64: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:68: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:73: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:77: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:80: E501 line too long (88 > 79 characters)\n./scripts/plain_neural_network.py:95:82: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:95:89: W291 trailing whitespace\n./scripts/plain_neural_network.py:96:80: E501 line too long (91 > 79 characters)\n./scripts/plain_neural_network.py:100:80: E501 line too long (91 > 79 characters)\n./scripts/plain_neural_network.py:105:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:106:17: E225 missing whitespace around operator\n./scripts/plain_neural_network.py:108:19: E225 missing whitespace around operator\n./scripts/plain_neural_network.py:111:45: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:47: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:51: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:57: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:61: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:66: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:70: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:75: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:111:80: E501 line too long (80 > 79 characters)\n./scripts/plain_neural_network.py:112:41: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:113:80: E501 line too long (84 > 79 characters)\n./scripts/plain_neural_network.py:113:85: W291 trailing whitespace\n./scripts/plain_neural_network.py:117:80: E501 line too long (84 > 79 characters)\n./scripts/plain_neural_network.py:117:85: W291 trailing whitespace\n./scripts/plain_neural_network.py:124:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:125:40: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:125:79: W291 trailing whitespace\n./scripts/plain_neural_network.py:126:61: W291 trailing whitespace\n./scripts/plain_neural_network.py:133:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:135:5: E122 continuation line missing indentation or outdented\n./scripts/plain_neural_network.py:139:48: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:139:56: E251 unexpected spaces around keyword / parameter equals\n./scripts/plain_neural_network.py:139:58: E251 unexpected spaces around keyword / parameter equals\n./scripts/plain_neural_network.py:139:80: E501 line too long (86 > 79 characters)\n./scripts/plain_neural_network.py:142:18: E225 missing whitespace around operator\n./scripts/plain_neural_network.py:143:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:146:80: E501 line too long (84 > 79 characters)\n./scripts/plain_neural_network.py:147:80: E501 line too long (85 > 79 characters)\n./scripts/plain_neural_network.py:147:86: W291 trailing whitespace\n./scripts/plain_neural_network.py:148:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:149:31: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:149:44: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:149:62: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:149:80: E501 line too long (83 > 79 characters)\n./scripts/plain_neural_network.py:149:80: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:153:40: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:153:53: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:153:80: E501 line too long (114 > 79 characters)\n./scripts/plain_neural_network.py:154:30: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:154:80: E501 line too long (82 > 79 characters)\n./scripts/plain_neural_network.py:158:1: E302 expected 2 blank lines, found 1\n./scripts/plain_neural_network.py:159:18: E225 missing whitespace around operator\n./scripts/plain_neural_network.py:160:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:163:80: E501 line too long (84 > 79 characters)\n./scripts/plain_neural_network.py:164:80: E501 line too long (85 > 79 characters)\n./scripts/plain_neural_network.py:164:86: W291 trailing whitespace\n./scripts/plain_neural_network.py:165:1: W293 blank line contains whitespace\n./scripts/plain_neural_network.py:166:31: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:166:44: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:166:62: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:166:80: E501 line too long (83 > 79 characters)\n./scripts/plain_neural_network.py:166:80: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:170:40: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:170:53: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:170:80: E501 line too long (114 > 79 characters)\n./scripts/plain_neural_network.py:171:30: E231 missing whitespace after ','\n./scripts/plain_neural_network.py:171:80: E501 line too long (82 > 79 characters)\n./scripts/plain_neural_network.py:176:1: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:179:1: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:180:1: E265 block comment should start with '# '\n./scripts/plain_neural_network.py:181:1: W391 blank line at end of file\n./scripts/run_multiproc.py:2:1: F401 'os' imported but unused\n./scripts/run_multiproc.py:11:1: E302 expected 2 blank lines, found 1\n./scripts/run_multiproc.py:15:1: E305 expected 2 blank lines after class or function definition, found 1\n./scripts/run_multiproc.py:19:1: W293 blank line contains whitespace\n./scripts/run_multiproc.py:25:1: W293 blank line contains whitespace\n./scripts/cnn_training.py:6:1: F401 'tensorflow.keras.preprocessing.image.load_img' imported but unused\n./scripts/cnn_training.py:7:1: F401 'tensorflow.keras.layers' imported but unused\n./scripts/cnn_training.py:9:1: F401 'sklearn.preprocessing' imported but unused\n./scripts/cnn_training.py:10:1: F401 'keras.callbacks.History' imported but unused\n./scripts/cnn_training.py:11:1: F401 'matplotlib.pyplot as plt' imported but unused\n./scripts/cnn_training.py:12:1: F401 'keras.utils.np_utils' imported but unused\n./scripts/cnn_training.py:15:1: F403 'from plain_neural_network import *' used; unable to detect undefined names\n./scripts/cnn_training.py:19:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:22:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:30:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:32:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:33:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:35:10: F405 'xr' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_training.py:35:44: E231 missing whitespace after ','\n./scripts/cnn_training.py:35:52: E251 unexpected spaces around keyword / parameter equals\n./scripts/cnn_training.py:35:54: E251 unexpected spaces around keyword / parameter equals\n./scripts/cnn_training.py:35:80: E501 line too long (82 > 79 characters)\n./scripts/cnn_training.py:38:1: W293 blank line contains whitespace\n./scripts/cnn_training.py:39:4: E225 missing whitespace around operator\n./scripts/cnn_training.py:39:14: E261 at least two spaces before inline comment\n./scripts/cnn_training.py:40:4: E225 missing whitespace around operator\n./scripts/cnn_training.py:45:1: E303 too many blank lines (4)\n./scripts/cnn_training.py:45:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:54:80: E501 line too long (80 > 79 characters)\n./scripts/cnn_training.py:60:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:62:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:63:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:65:10: F405 'xr' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_training.py:65:44: E231 missing whitespace after ','\n./scripts/cnn_training.py:65:52: E251 unexpected spaces around keyword / parameter equals\n./scripts/cnn_training.py:65:54: E251 unexpected spaces around keyword / parameter equals\n./scripts/cnn_training.py:65:80: E501 line too long (82 > 79 characters)\n./scripts/cnn_training.py:68:16: E225 missing whitespace around operator\n./scripts/cnn_training.py:68:25: E261 at least two spaces before inline comment\n./scripts/cnn_training.py:71:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:71:80: E501 line too long (99 > 79 characters)\n./scripts/cnn_training.py:72:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:72:80: E501 line too long (85 > 79 characters)\n./scripts/cnn_training.py:75:15: E231 missing whitespace after ','\n./scripts/cnn_training.py:76:15: E231 missing whitespace after ','\n./scripts/cnn_training.py:77:15: E231 missing whitespace after ','\n./scripts/cnn_training.py:78:15: E231 missing whitespace after ','\n./scripts/cnn_training.py:79:34: E231 missing whitespace after ','\n./scripts/cnn_training.py:80:34: E231 missing whitespace after ','\n./scripts/cnn_training.py:82:17: E231 missing whitespace after ','\n./scripts/cnn_training.py:83:19: E231 missing whitespace after ','\n./scripts/cnn_training.py:84:19: E231 missing whitespace after ','\n./scripts/cnn_training.py:85:19: E231 missing whitespace after ','\n./scripts/cnn_training.py:86:19: E231 missing whitespace after ','\n./scripts/cnn_training.py:87:62: E231 missing whitespace after ','\n./scripts/cnn_training.py:87:80: E501 line too long (90 > 79 characters)\n./scripts/cnn_training.py:88:62: E231 missing whitespace after ','\n./scripts/cnn_training.py:88:80: E501 line too long (90 > 79 characters)\n./scripts/cnn_training.py:89:1: W293 blank line contains whitespace\n./scripts/cnn_training.py:90:40: W291 trailing whitespace\n./scripts/cnn_training.py:91:25: E231 missing whitespace after ','\n./scripts/cnn_training.py:94:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:104:9: F405 'get_model' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_training.py:107:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:107:15: W291 trailing whitespace\n./scripts/cnn_training.py:108:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:109:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:109:80: E501 line too long (109 > 79 characters)\n./scripts/cnn_training.py:118:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:120:27: E231 missing whitespace after ','\n./scripts/cnn_training.py:120:29: E231 missing whitespace after ','\n./scripts/cnn_training.py:121:27: E231 missing whitespace after ','\n./scripts/cnn_training.py:121:29: E231 missing whitespace after ','\n./scripts/cnn_training.py:123:66: E225 missing whitespace around operator\n./scripts/cnn_training.py:123:80: E501 line too long (95 > 79 characters)\n./scripts/cnn_training.py:125:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:127:26: E231 missing whitespace after ','\n./scripts/cnn_training.py:127:28: E231 missing whitespace after ','\n./scripts/cnn_training.py:128:26: E231 missing whitespace after ','\n./scripts/cnn_training.py:128:28: E231 missing whitespace after ','\n./scripts/cnn_training.py:130:80: E501 line too long (93 > 79 characters)\n./scripts/cnn_training.py:132:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:134:25: E231 missing whitespace after ','\n./scripts/cnn_training.py:134:27: E231 missing whitespace after ','\n./scripts/cnn_training.py:135:25: E231 missing whitespace after ','\n./scripts/cnn_training.py:135:27: E231 missing whitespace after ','\n./scripts/cnn_training.py:137:80: E501 line too long (90 > 79 characters)\n./scripts/cnn_training.py:138:1: W293 blank line contains whitespace\n./scripts/cnn_training.py:139:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:140:80: E501 line too long (109 > 79 characters)\n./scripts/cnn_training.py:142:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:143:5: E265 block comment should start with '# '\n./scripts/cnn_training.py:143:80: E501 line too long (149 > 79 characters)\n./scripts/cnn_training.py:144:80: E501 line too long (148 > 79 characters)\n./scripts/cnn_training.py:145:1: W293 blank line contains whitespace\n./scripts/cnn_training.py:146:1: E302 expected 2 blank lines, found 1\n./scripts/cnn_training.py:153:1: E265 block comment should start with '# '\n./scripts/cnn_training.py:165:13: F405 'plain_net_eddy' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_training.py:166:11: F405 'plain_net_eddy' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_training.py:167:29: E231 missing whitespace after ','\n./scripts/cnn_training.py:171:1: E303 too many blank lines (3)\n./scripts/cnn_training.py:171:78: E261 at least two spaces before inline comment\n./scripts/cnn_training.py:171:79: E262 inline comment should start with '# '\n./scripts/cnn_training.py:171:80: E501 line too long (128 > 79 characters)\n./scripts/cnn_training.py:172:80: E501 line too long (134 > 79 characters)\n./scripts/cnn_training.py:174:80: E501 line too long (145 > 79 characters)\n./scripts/cnn_training.py:174:81: E203 whitespace before ','\n./scripts/cnn_training.py:174:102: E231 missing whitespace after ','\n./scripts/cnn_training.py:175:13: E128 continuation line under-indented for visual indent\n./scripts/cnn_training.py:175:80: E501 line too long (146 > 79 characters)\n./scripts/cnn_training.py:177:80: E501 line too long (115 > 79 characters)\n./scripts/cnn_training.py:177:105: E231 missing whitespace after ','\n./scripts/cnn_training.py:182:1: W391 blank line at end of file\n./scripts/cnn_predicted_data_generation.py:4:1: F401 'tensorflow as tf' imported but unused\n./scripts/cnn_predicted_data_generation.py:5:1: F401 'tensorflow.keras' imported but unused\n./scripts/cnn_predicted_data_generation.py:7:1: F401 'tensorflow.keras.layers' imported but unused\n./scripts/cnn_predicted_data_generation.py:8:1: F401 'keras.callbacks.History' imported but unused\n./scripts/cnn_predicted_data_generation.py:9:1: F401 'matplotlib.pyplot as plt' imported but unused\n./scripts/cnn_predicted_data_generation.py:10:1: F401 'os' imported but unused\n./scripts/cnn_predicted_data_generation.py:11:1: F401 'tensorflow.keras.optimizers.Adam' imported but unused\n./scripts/cnn_predicted_data_generation.py:12:1: F403 'from plain_neural_network import *' used; unable to detect undefined names\n./scripts/cnn_predicted_data_generation.py:13:1: F401 'sklearn.metrics.classification_report' imported but unused\n./scripts/cnn_predicted_data_generation.py:17:1: E303 too many blank lines (3)\n./scripts/cnn_predicted_data_generation.py:19:67: E261 at least two spaces before inline comment\n./scripts/cnn_predicted_data_generation.py:19:68: E262 inline comment should start with '# '\n./scripts/cnn_predicted_data_generation.py:19:80: E501 line too long (95 > 79 characters)\n./scripts/cnn_predicted_data_generation.py:20:75: E261 at least two spaces before inline comment\n./scripts/cnn_predicted_data_generation.py:20:76: E262 inline comment should start with '# '\n./scripts/cnn_predicted_data_generation.py:20:80: E501 line too long (105 > 79 characters)\n./scripts/cnn_predicted_data_generation.py:22:17: F405 'using_model' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_predicted_data_generation.py:25:1: E265 block comment should start with '# '\n./scripts/cnn_predicted_data_generation.py:25:68: W292 no newline at end of file\n./scripts/cnn_predicted_data_generation.py:25:68: W292 no newline at end of file\n./scripts/cnn_predicted_data_generation.py:25:68: W292 no newline at end of file\n./scripts/run.py:12:1: F403 'from interpolator_func import *' used; unable to detect undefined names\n./scripts/run.py:13:1: F401 'month_to_year as m2y' imported but unused\n./scripts/run.py:15:1: E265 block comment should start with '# '\n./scripts/run.py:45:1: E303 too many blank lines (3)\n./scripts/run.py:45:1: E265 block comment should start with '# '\n./scripts/run.py:50:15: F405 'input_path_data' may be undefined, or defined from star imports: interpolator_func\n./scripts/run.py:53:15: F405 'input_path_grid' may be undefined, or defined from star imports: interpolator_func\n./scripts/run.py:65:23: F405 'Interpolator' may be undefined, or defined from star imports: interpolator_func\n./scripts/run.py:65:80: E501 line too long (209 > 79 characters)\n./scripts/run.py:66:80: E501 line too long (88 > 79 characters)\n./scripts/run.py:66:84: E251 unexpected spaces around keyword / parameter equals\n./scripts/run.py:66:86: E251 unexpected spaces around keyword / parameter equals\n./scripts/run.py:68:1: W391 blank line at end of file\n./scripts/generic_eddy_class.py:3:1: F401 'matplotlib.path.Path' imported but unused\n./scripts/generic_eddy_class.py:6:1: F401 'py_eddy_tracker.data' imported but unused\n./scripts/generic_eddy_class.py:8:1: F401 'py_eddy_tracker.poly.create_vertice' imported but unused\n./scripts/generic_eddy_class.py:9:1: F401 're' imported but unused\n./scripts/generic_eddy_class.py:12:1: F401 'matplotlib.animation.FuncAnimation' imported but unused\n./scripts/generic_eddy_class.py:13:1: F811 redefinition of unused 'arange' from line 4\n./scripts/generic_eddy_class.py:13:1: F401 'numpy.arange' imported but unused\n./scripts/generic_eddy_class.py:13:1: F401 'numpy.isnan' imported but unused\n./scripts/generic_eddy_class.py:13:1: F401 'numpy.meshgrid' imported but unused\n./scripts/generic_eddy_class.py:13:1: F401 'numpy.ones' imported but unused\n./scripts/generic_eddy_class.py:15:1: F401 'py_eddy_tracker.start_logger' imported but unused\n./scripts/generic_eddy_class.py:16:1: F401 'py_eddy_tracker.data.get_demo_path' imported but unused\n./scripts/generic_eddy_class.py:18:1: F401 'py_eddy_tracker.gui.GUI_AXES' imported but unused\n./scripts/generic_eddy_class.py:19:1: F401 'netCDF4.Dataset' imported but unused\n./scripts/generic_eddy_class.py:20:1: F401 'xarray as xr' imported but unused\n./scripts/generic_eddy_class.py:21:1: F401 'pandas as pd' imported but unused\n./scripts/generic_eddy_class.py:22:1: F811 redefinition of unused 'np' from line 1\n./scripts/generic_eddy_class.py:23:1: F401 'matplotlib.cm' imported but unused\n./scripts/generic_eddy_class.py:24:1: F401 'os' imported but unused\n./scripts/generic_eddy_class.py:28:1: E302 expected 2 blank lines, found 1\n./scripts/generic_eddy_class.py:34:34: W291 trailing whitespace\n./scripts/generic_eddy_class.py:40:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:44:80: E501 line too long (84 > 79 characters)\n./scripts/generic_eddy_class.py:50:5: E303 too many blank lines (2)\n./scripts/generic_eddy_class.py:53:80: E501 line too long (83 > 79 characters)\n./scripts/generic_eddy_class.py:63:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:68:80: E501 line too long (84 > 79 characters)\n./scripts/generic_eddy_class.py:73:30: E231 missing whitespace after ':'\n./scripts/generic_eddy_class.py:76:80: E501 line too long (88 > 79 characters)\n./scripts/generic_eddy_class.py:79:5: E301 expected 1 blank line, found 0\n./scripts/generic_eddy_class.py:79:38: E203 whitespace before ':'\n./scripts/generic_eddy_class.py:81:36: E203 whitespace before ','\n./scripts/generic_eddy_class.py:81:80: E501 line too long (104 > 79 characters)\n./scripts/generic_eddy_class.py:82:80: E501 line too long (137 > 79 characters)\n./scripts/generic_eddy_class.py:86:5: E301 expected 1 blank line, found 0\n./scripts/generic_eddy_class.py:86:40: E231 missing whitespace after ':'\n./scripts/generic_eddy_class.py:90:80: E501 line too long (94 > 79 characters)\n./scripts/generic_eddy_class.py:92:80: E501 line too long (123 > 79 characters)\n./scripts/generic_eddy_class.py:96:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:98:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:99:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:100:1: W293 blank line contains whitespace\n./scripts/generic_eddy_class.py:100:1: E303 too many blank lines (4)\n./scripts/generic_eddy_class.py:100:9: W292 no newline at end of file\n./scripts/interpolator_func.py:13:80: E501 line too long (105 > 79 characters)\n./scripts/interpolator_func.py:13:106: W291 trailing whitespace\n./scripts/interpolator_func.py:17:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:18:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:19:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:20:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:21:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:22:1: F401 'scipy.interpolate.CloughTocher2DInterpolator' imported but unused\n./scripts/interpolator_func.py:22:1: F401 'scipy.interpolate.LinearNDInterpolator' imported but unused\n./scripts/interpolator_func.py:22:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:22:80: E501 line too long (101 > 79 characters)\n./scripts/interpolator_func.py:23:1: F401 'scipy.spatial.qhull' imported but unused\n./scripts/interpolator_func.py:23:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:24:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:25:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:26:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:27:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:28:1: F401 'datetime.datetime' imported but unused\n./scripts/interpolator_func.py:28:1: F401 'datetime.timedelta' imported but unused\n./scripts/interpolator_func.py:28:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:29:1: F401 'pandas.to_datetime' imported but unused\n./scripts/interpolator_func.py:29:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:30:1: E402 module level import not at top of file\n./scripts/interpolator_func.py:32:1: E265 block comment should start with '# '\n./scripts/interpolator_func.py:35:1: E302 expected 2 blank lines, found 1\n./scripts/interpolator_func.py:36:36: E231 missing whitespace after ':'\n./scripts/interpolator_func.py:36:40: E203 whitespace before ','\n./scripts/interpolator_func.py:36:80: E501 line too long (218 > 79 characters)\n./scripts/interpolator_func.py:44:80: E501 line too long (119 > 79 characters)\n./scripts/interpolator_func.py:53:46: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:53:48: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:53:80: E501 line too long (94 > 79 characters)\n./scripts/interpolator_func.py:65:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:72:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:81:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:82:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:83:80: E501 line too long (111 > 79 characters)\n./scripts/interpolator_func.py:85:80: E501 line too long (115 > 79 characters)\n./scripts/interpolator_func.py:88:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:90:5: E303 too many blank lines (3)\n./scripts/interpolator_func.py:91:80: E501 line too long (90 > 79 characters)\n./scripts/interpolator_func.py:92:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:99:80: E501 line too long (119 > 79 characters)\n./scripts/interpolator_func.py:101:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:102:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:103:50: W291 trailing whitespace\n./scripts/interpolator_func.py:104:50: W291 trailing whitespace\n./scripts/interpolator_func.py:121:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:126:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:128:80: E501 line too long (109 > 79 characters)\n./scripts/interpolator_func.py:132:80: E501 line too long (85 > 79 characters)\n./scripts/interpolator_func.py:139:13: W291 trailing whitespace\n./scripts/interpolator_func.py:150:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:157:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:158:80: E501 line too long (119 > 79 characters)\n./scripts/interpolator_func.py:165:80: E501 line too long (87 > 79 characters)\n./scripts/interpolator_func.py:167:80: E501 line too long (93 > 79 characters)\n./scripts/interpolator_func.py:170:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:172:77: E231 missing whitespace after ','\n./scripts/interpolator_func.py:172:80: E501 line too long (91 > 79 characters)\n./scripts/interpolator_func.py:174:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:175:61: W291 trailing whitespace\n./scripts/interpolator_func.py:176:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:180:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:181:79: W291 trailing whitespace\n./scripts/interpolator_func.py:182:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:186:80: E501 line too long (84 > 79 characters)\n./scripts/interpolator_func.py:188:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:190:31: E231 missing whitespace after ','\n./scripts/interpolator_func.py:193:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:194:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:195:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:196:5: E303 too many blank lines (3)\n./scripts/interpolator_func.py:198:80: E501 line too long (120 > 79 characters)\n./scripts/interpolator_func.py:203:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:205:44: E231 missing whitespace after ','\n./scripts/interpolator_func.py:206:80: E501 line too long (100 > 79 characters)\n./scripts/interpolator_func.py:207:80: E501 line too long (108 > 79 characters)\n./scripts/interpolator_func.py:210:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:211:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:212:5: E303 too many blank lines (2)\n./scripts/interpolator_func.py:214:80: E501 line too long (114 > 79 characters)\n./scripts/interpolator_func.py:217:80: E501 line too long (115 > 79 characters)\n./scripts/interpolator_func.py:221:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:222:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:223:9: E303 too many blank lines (2)\n./scripts/interpolator_func.py:223:35: W291 trailing whitespace\n./scripts/interpolator_func.py:224:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:226:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:229:48: E231 missing whitespace after ','\n./scripts/interpolator_func.py:230:80: E501 line too long (98 > 79 characters)\n./scripts/interpolator_func.py:232:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:235:42: E231 missing whitespace after ','\n./scripts/interpolator_func.py:236:80: E501 line too long (100 > 79 characters)\n./scripts/interpolator_func.py:237:13: E265 block comment should start with '# '\n./scripts/interpolator_func.py:237:80: E501 line too long (93 > 79 characters)\n./scripts/interpolator_func.py:239:48: E231 missing whitespace after ','\n./scripts/interpolator_func.py:240:80: E501 line too long (146 > 79 characters)\n./scripts/interpolator_func.py:242:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:246:80: E501 line too long (82 > 79 characters)\n./scripts/interpolator_func.py:247:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:248:40: E231 missing whitespace after ','\n./scripts/interpolator_func.py:249:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:250:80: E501 line too long (87 > 79 characters)\n./scripts/interpolator_func.py:252:80: E501 line too long (123 > 79 characters)\n./scripts/interpolator_func.py:252:124: W291 trailing whitespace\n./scripts/interpolator_func.py:253:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:259:80: E501 line too long (117 > 79 characters)\n./scripts/interpolator_func.py:262:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:264:22: E225 missing whitespace around operator\n./scripts/interpolator_func.py:264:57: E261 at least two spaces before inline comment\n./scripts/interpolator_func.py:264:58: E262 inline comment should start with '# '\n./scripts/interpolator_func.py:264:80: E501 line too long (96 > 79 characters)\n./scripts/interpolator_func.py:265:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:267:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:268:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:272:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:273:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:275:13: E221 multiple spaces before operator\n./scripts/interpolator_func.py:275:66: W291 trailing whitespace\n./scripts/interpolator_func.py:276:57: W291 trailing whitespace\n./scripts/interpolator_func.py:277:38: E231 missing whitespace after ','\n./scripts/interpolator_func.py:277:58: E231 missing whitespace after ','\n./scripts/interpolator_func.py:277:80: E501 line too long (83 > 79 characters)\n./scripts/interpolator_func.py:278:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:279:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:280:9: E303 too many blank lines (2)\n./scripts/interpolator_func.py:280:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:286:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:287:30: E231 missing whitespace after ','\n./scripts/interpolator_func.py:288:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:289:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:291:80: E501 line too long (80 > 79 characters)\n./scripts/interpolator_func.py:296:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:297:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:300:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:301:9: E265 block comment should start with '# '\n./scripts/interpolator_func.py:304:32: W291 trailing whitespace\n./scripts/interpolator_func.py:305:15: E225 missing whitespace around operator\n./scripts/interpolator_func.py:306:14: E225 missing whitespace around operator\n./scripts/interpolator_func.py:308:80: E501 line too long (119 > 79 characters)\n./scripts/interpolator_func.py:308:85: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:308:87: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:308:96: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:308:98: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:308:110: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:308:112: E251 unexpected spaces around keyword / parameter equals\n./scripts/interpolator_func.py:311:51: E261 at least two spaces before inline comment\n./scripts/interpolator_func.py:311:52: E262 inline comment should start with '# '\n./scripts/interpolator_func.py:312:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:314:20: W291 trailing whitespace\n./scripts/interpolator_func.py:315:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:316:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:317:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:318:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:319:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:320:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:321:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:322:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:323:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:324:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:325:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:326:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:327:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:328:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:329:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:330:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:331:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:332:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:333:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:334:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:335:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:336:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:337:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:338:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:339:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:340:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:341:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:342:1: W293 blank line contains whitespace\n./scripts/interpolator_func.py:343:1: W293 blank line contains whitespace\n./scripts/filters.py:6:80: E501 line too long (96 > 79 characters)\n./scripts/filters.py:9:1: F401 'netCDF4.Dataset' imported but unused\n./scripts/filters.py:10:1: F401 'datetime.timedelta' imported but unused\n./scripts/filters.py:12:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:30:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:31:1: W293 blank line contains whitespace\n./scripts/filters.py:39:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:40:9: E117 over-indented\n./scripts/filters.py:59:1: W293 blank line contains whitespace\n./scripts/filters.py:60:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:61:9: E117 over-indented (comment)\n./scripts/filters.py:62:9: E117 over-indented\n./scripts/filters.py:63:34: E203 whitespace before ':'\n./scripts/filters.py:72:1: W293 blank line contains whitespace\n./scripts/filters.py:73:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:74:9: E117 over-indented\n./scripts/filters.py:81:80: E501 line too long (81 > 79 characters)\n./scripts/filters.py:86:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:87:5: E125 continuation line with same indent as next logical line\n./scripts/filters.py:92:80: E501 line too long (84 > 79 characters)\n./scripts/filters.py:99:5: E303 too many blank lines (2)\n./scripts/filters.py:118:23: F821 undefined name 'np_mean'\n./scripts/filters.py:138:80: E501 line too long (81 > 79 characters)\n./scripts/filters.py:150:80: E501 line too long (82 > 79 characters)\n./scripts/filters.py:151:80: E501 line too long (82 > 79 characters)\n./scripts/filters.py:173:1: E302 expected 2 blank lines, found 1\n./scripts/filters.py:173:80: E501 line too long (83 > 79 characters)\n./scripts/filters.py:174:9: E117 over-indented\n./scripts/filters.py:177:80: E501 line too long (106 > 79 characters)\n./scripts/filters.py:179:80: E501 line too long (101 > 79 characters)\n./scripts/filters.py:190:21: W291 trailing whitespace\n./scripts/filters.py:193:31: W292 no newline at end of file\n./scripts/generate_segmentation_mask.py:2:1: F401 'matplotlib.pyplot as plt' imported but unused\n./scripts/generate_segmentation_mask.py:6:1: F401 'py_eddy_tracker.data' imported but unused\n./scripts/generate_segmentation_mask.py:7:1: F401 'py_eddy_tracker.dataset.grid.RegularGridDataset' imported but unused\n./scripts/generate_segmentation_mask.py:10:1: F401 're' imported but unused\n./scripts/generate_segmentation_mask.py:11:1: F401 'datetime.datetime' imported but unused\n./scripts/generate_segmentation_mask.py:11:1: F401 'datetime.timedelta' imported but unused\n./scripts/generate_segmentation_mask.py:13:1: F401 'matplotlib.animation.FuncAnimation' imported but unused\n./scripts/generate_segmentation_mask.py:14:1: F811 redefinition of unused 'arange' from line 4\n./scripts/generate_segmentation_mask.py:14:1: F401 'numpy.arange' imported but unused\n./scripts/generate_segmentation_mask.py:14:1: F401 'numpy.isnan' imported but unused\n./scripts/generate_segmentation_mask.py:14:1: F401 'numpy.meshgrid' imported but unused\n./scripts/generate_segmentation_mask.py:14:1: F401 'numpy.ones' imported but unused\n./scripts/generate_segmentation_mask.py:16:1: F401 'py_eddy_tracker.start_logger' imported but unused\n./scripts/generate_segmentation_mask.py:17:1: F401 'py_eddy_tracker.data.get_demo_path' imported but unused\n./scripts/generate_segmentation_mask.py:18:1: F401 'py_eddy_tracker.dataset.grid.GridCollection' imported but unused\n./scripts/generate_segmentation_mask.py:19:1: F401 'py_eddy_tracker.gui.GUI_AXES' imported but unused\n./scripts/generate_segmentation_mask.py:20:1: F401 'netCDF4.Dataset' imported but unused\n./scripts/generate_segmentation_mask.py:22:1: F401 'pandas as pd' imported but unused\n./scripts/generate_segmentation_mask.py:23:1: F811 redefinition of unused 'np' from line 1\n./scripts/generate_segmentation_mask.py:24:1: F401 'matplotlib.cm' imported but unused\n./scripts/generate_segmentation_mask.py:30:1: F401 'typing.List' imported but unused\n./scripts/generate_segmentation_mask.py:30:1: F401 'typing.Tuple' imported but unused\n./scripts/generate_segmentation_mask.py:30:1: E303 too many blank lines (3)\n./scripts/generate_segmentation_mask.py:32:1: E302 expected 2 blank lines, found 1\n./scripts/generate_segmentation_mask.py:33:43: W291 trailing whitespace\n./scripts/generate_segmentation_mask.py:35:80: E501 line too long (84 > 79 characters)\n./scripts/generate_segmentation_mask.py:35:85: W291 trailing whitespace\n./scripts/generate_segmentation_mask.py:36:80: E501 line too long (82 > 79 characters)\n./scripts/generate_segmentation_mask.py:40:1: W293 blank line contains whitespace\n./scripts/generate_segmentation_mask.py:46:20: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:47:40: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:48:40: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:50:20: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:51:40: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:52:40: E225 missing whitespace around operator\n./scripts/generate_segmentation_mask.py:58:80: E501 line too long (84 > 79 characters)\n./scripts/generate_segmentation_mask.py:62:80: E501 line too long (84 > 79 characters)\n./scripts/generate_segmentation_mask.py:65:5: E301 expected 1 blank line, found 0\n./scripts/generate_segmentation_mask.py:75:42: E231 missing whitespace after ','\n./scripts/generate_segmentation_mask.py:77:5: E301 expected 1 blank line, found 0\n./scripts/generate_segmentation_mask.py:83:40: E251 unexpected spaces around keyword / parameter equals\n./scripts/generate_segmentation_mask.py:83:42: E251 unexpected spaces around keyword / parameter equals\n./scripts/generate_segmentation_mask.py:84:80: E501 line too long (89 > 79 characters)\n./scripts/generate_segmentation_mask.py:90:1: E305 expected 2 blank lines after class or function definition, found 1\n./scripts/generate_segmentation_mask.py:91:5: E265 block comment should start with '# '\n./scripts/generate_segmentation_mask.py:93:80: E501 line too long (114 > 79 characters)\n./scripts/generate_segmentation_mask.py:95:80: E501 line too long (113 > 79 characters)\n./scripts/generate_segmentation_mask.py:100:80: E501 line too long (100 > 79 characters)\n./scripts/generate_segmentation_mask.py:102:80: E501 line too long (102 > 79 characters)\n./scripts/generate_segmentation_mask.py:104:33: E231 missing whitespace after ','\n./scripts/generate_segmentation_mask.py:105:80: E501 line too long (144 > 79 characters)\n./scripts/generate_segmentation_mask.py:109:80: E501 line too long (155 > 79 characters)\n./scripts/generate_segmentation_mask.py:110:62: W292 no newline at end of file\n./scripts/cnn_testing.py:4:1: F401 'tensorflow as tf' imported but unused\n./scripts/cnn_testing.py:5:1: F401 'tensorflow.keras' imported but unused\n./scripts/cnn_testing.py:7:1: F401 'tensorflow.keras.layers' imported but unused\n./scripts/cnn_testing.py:8:1: F401 'keras.callbacks.History' imported but unused\n./scripts/cnn_testing.py:9:1: F401 'matplotlib.pyplot as plt' imported but unused\n./scripts/cnn_testing.py:10:1: F401 'os' imported but unused\n./scripts/cnn_testing.py:11:1: F401 'tensorflow.keras.optimizers.Adam' imported but unused\n./scripts/cnn_testing.py:12:1: F403 'from plain_neural_network import *' used; unable to detect undefined names\n./scripts/cnn_testing.py:13:1: F401 'sklearn.metrics.classification_report' imported but unused\n./scripts/cnn_testing.py:17:1: E303 too many blank lines (3)\n./scripts/cnn_testing.py:19:55: E261 at least two spaces before inline comment\n./scripts/cnn_testing.py:19:56: E262 inline comment should start with '# '\n./scripts/cnn_testing.py:19:80: E501 line too long (83 > 79 characters)\n./scripts/cnn_testing.py:20:62: E261 at least two spaces before inline comment\n./scripts/cnn_testing.py:20:63: E262 inline comment should start with '# '\n./scripts/cnn_testing.py:20:80: E501 line too long (92 > 79 characters)\n./scripts/cnn_testing.py:22:20: F405 'using_model' may be undefined, or defined from star imports: plain_neural_network\n./scripts/cnn_testing.py:25:1: E265 block comment should start with '# '\n./scripts/cnn_testing.py:26:1: W391 blank line at end of file"
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Uni": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Uni01": {
+                    "description": "Are the tests passing through an automated means?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the failing test cases found by the {tool_name} tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Test cases are not passing using None testing framework",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-jenkins_exit_status",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "pytest",
+                                "lang": "Python",
+                                "version": "7.1.3",
+                                "docker": {
+                                    "image": "eoscsynergy/sqaaas-pytest:7.1.3-alpha",
+                                    "reviewed": "2023-08-09"
+                                },
+                                "ci": {
+                                    "name": "QC.Uni github.com/LegoCreation/CNN_eddy_detection pytest",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "pytest  --json-report  --json-report-indent 4"
+                                    ],
+                                    "stdout_text": "============================= test session starts ==============================\nplatform linux -- Python 3.9.17, pytest-7.1.3, pluggy-1.2.0\nrootdir: /sqaaas-build/github.com/LegoCreation/CNN_eddy_detection\nplugins: json-report-1.5.0, metadata-3.0.0\ncollected 0 items\n\n--------------------------------- JSON report ----------------------------------\nreport saved to: .report.json\n============================ no tests ran in 0.02s =============================",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/97/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Ver": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Ver01.0": {
+                    "description": "Are tags being used for releasing software",
+                    "requirement_level": "MUST",
+                    "hint": "Git tags are a convenient way to release software. This subcriterion checks if any git tag is present in the code history. More info on it-scm.com/book/en/v2/Git-Basics-Tagging\" target=\"_blank\">git tagging</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "The code repository does not use tags for releasing new software versions",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/LegoCreation/CNN_eddy_detection get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/106/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                },
+                "QC.Ver01": {
+                    "description": "Is the latest release compliant with Semantic Versioning (SemVer) specification?",
+                    "requirement_level": "SHOULD",
+                    "hint": "Latest tag must be compliant with <a href=\"https://semver.org\" target=\"_blank\">SemVer specification</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Latest release tag None found, but is not SemVer compliant",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/LegoCreation/CNN_eddy_detection get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/106/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                },
+                "QC.Ver02": {
+                    "description": "Are all release tags with Semantic Versioning (SemVer) specification?",
+                    "requirement_level": "SHOULD",
+                    "hint": "Existent release tags shall be <a href=\"https://semver.org\" target=\"_blank\">SemVer</a> compliant for this subcriterion to be successful",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "All release tags are SemVer compliant",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/LegoCreation/CNN_eddy_detection get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/CNN_eddy_detection.assess.sqaaas/job/unitn_work/1/execution/node/106/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/CNN_eddy_detection.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 33,
+                "total_subcriteria": 3,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Met": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Met01": {
+                    "description": "Is the software citable?",
+                    "valid": false,
+                    "hint": "The two formats for software citation supported by SQAaaS are: 1) <a href=\"https://codemeta.github.io/\" target=\"_blank\">CodeMeta</a> and 2) <a href=\"https://citation-file-format.github.io/\" target=\"_blank\">Citation File Format (CFF)</a>. While CodeMeta provides you with a more comprehensive description, CFF is a more lightweight, good-enough approach to software (with built-in support by GitHub) citation. Both provide tools (<a href=\"https://codemeta.github.io/codemeta-generator/\" target=\"_blank\">CodeMeta generator</a>, <a href=\"https://citation-file-format.github.io/cff-initializer-javascript/#/\" target=\"_blank\">CFFINIT</a>)to easily generate a working citation file. Once having the file, be sure to add it to the root path of your code repo.",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "No matching files found for language <CodeMeta> in repository searching by extensions or filenames\nNo matching files found for language <Citation File Format> in repository searching by extensions or filenames"
+                        }
+                    ],
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        }
+    },
+    "badge": {
+        "software": {
+            "criteria": {
+                "bronze": {
+                    "to_fulfill": [
+                        "QC.Acc",
+                        "QC.Lic",
+                        "QC.Doc"
+                    ],
+                    "missing": [
+                        "QC.Lic",
+                        "QC.Doc"
+                    ],
+                    "fulfilled": [
+                        "QC.Acc"
+                    ]
+                },
+                "silver": {
+                    "to_fulfill": [
+                        "QC.Ver",
+                        "QC.Acc",
+                        "QC.Met",
+                        "QC.Lic",
+                        "QC.Doc"
+                    ],
+                    "missing": [
+                        "QC.Met",
+                        "QC.Lic",
+                        "QC.Ver",
+                        "QC.Doc"
+                    ],
+                    "fulfilled": [
+                        "QC.Acc"
+                    ]
+                },
+                "gold": {
+                    "to_fulfill": [
+                        "QC.Sty",
+                        "QC.Uni",
+                        "QC.Ver",
+                        "QC.Acc",
+                        "QC.Met",
+                        "QC.Lic",
+                        "QC.Sec",
+                        "QC.Doc"
+                    ],
+                    "missing": [
+                        "QC.Sty",
+                        "QC.Uni",
+                        "QC.Ver",
+                        "QC.Met",
+                        "QC.Lic",
+                        "QC.Doc"
+                    ],
+                    "fulfilled": [
+                        "QC.Sec",
+                        "QC.Acc"
+                    ]
+                }
+            },
+            "data": {}
+        }
+    }
+}

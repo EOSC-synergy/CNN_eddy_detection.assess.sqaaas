@@ -1,0 +1,64 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: main
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/LegoCreation/CNN_eddy_detection:
+      branch: unitn_work
+      repo: https://github.com/LegoCreation/CNN_eddy_detection/
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/LegoCreation/CNN_eddy_detection git:
+        commands:
+        - /usr/bin/env sh .sqa/script.lanky-mustard-clam.sh
+        container: qc.acc_muggy-sapphire-shark
+  QC.Doc:
+    repos:
+      github.com/LegoCreation/CNN_eddy_detection find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.woozy-peach-bombay.sh
+        container: qc.doc_dorky-cinnabar-greyhound
+      github.com/LegoCreation/CNN_eddy_detection git:
+        commands:
+        - /usr/bin/env sh .sqa/script.shaggy-magenta-fox.sh
+        container: qc.doc_queasy-zucchini-dragon
+      github.com/LegoCreation/CNN_eddy_detection markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.lumpy-azure-sloth.sh
+        container: qc.doc_pokey-violet-sheepdog
+  QC.Lic:
+    repos:
+      github.com/LegoCreation/CNN_eddy_detection licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.stealthy-bistre-shrimp.sh
+        container: qc.lic_gimpy-russet-vole
+  QC.Sec:
+    repos:
+      github.com/LegoCreation/CNN_eddy_detection bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.nerdy-flax-tzu.sh
+        container: qc.sec_lanky-denim-spider
+  QC.Sty:
+    repos:
+      github.com/LegoCreation/CNN_eddy_detection flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.pokey-turquoise-walrus.sh
+        container: qc.sty_beady-corn-sloth
+  QC.Uni:
+    repos:
+      github.com/LegoCreation/CNN_eddy_detection pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.queasy-myrtle-tang.sh
+        container: qc.uni_cozy-bistre-frise
+  QC.Ver:
+    repos:
+      github.com/LegoCreation/CNN_eddy_detection get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.pretty-mustard-sloth.sh
+        container: qc.ver_pretty-lavender-booby
+timeout: 5400
